@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import javax.swing.JLayeredPane;
+import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
 
 import jan.game.source.Audio.AudioClip;
 import jan.game.source.Audio.AudioManager;
@@ -124,13 +126,11 @@ public class Game_Controller implements Runnable{
 
     /**
      * Konstruktor
+     * @throws InterruptedException 
      */
-    public Game_Controller(){
+    public Game_Controller() {
         mGame_C_Ref = this;
         mGUI_C_Ref = new GUI_Controller(this);
-        //starten des Gameloop
-        gameThread = new Thread(this);
-        gameThread.start();
         AudioClip ac = new AudioClip();
         ac.setFile("../../music/music.wav");
         ac.play();
@@ -139,7 +139,10 @@ public class Game_Controller implements Runnable{
 
         //wechseln zum Menü
         fireEvent(ACTION.STARTAPP);
-    }
+        //starten des Gameloop
+        gameThread = new Thread(this);
+        gameThread.start();
+     }
     
     Spawner spawner;
     Timer timer;

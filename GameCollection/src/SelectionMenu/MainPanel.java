@@ -5,11 +5,14 @@ import java.awt.GridLayout;
 import javax.swing.JSplitPane;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -17,7 +20,7 @@ public class MainPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
 
-    Thread thread;
+    Thread newThread;
 
     
     /**
@@ -40,15 +43,9 @@ public class MainPanel extends JPanel {
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 
-                if (!GameFrame.gameRunning) {
-                    
-                    GameFrame.gameRunning = true;
-                    ezgin.src.main.Main.main(null);                            
-                    GameFrame.instance.setVisible(false);
-
-                }
-
+                    GameFrame.startGame(() -> ezgin.src.main.Main.main(null));
             }
+            
         });
 
         
@@ -58,12 +55,7 @@ public class MainPanel extends JPanel {
         add(btnNewButton_1);
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                 if (!GameFrame.gameRunning) {
-                     
-                     GameFrame.gameRunning = true;
-                     Fatjon.Javamory.source.JavamoryFrame.main(null);
-                     GameFrame.instance.setVisible(false);
-                 }
+                GameFrame.startGame(() -> Fatjon.Javamory.source.JavamoryFrame.main(null));
             }
         });
         
@@ -84,12 +76,7 @@ public class MainPanel extends JPanel {
         add(btnNewButton_3);
         btnNewButton_3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                 if (!GameFrame.gameRunning) {
-                     
-                     GameFrame.gameRunning = true;
-                     PixelPinesProtection.main.Game.main(null);
-                     GameFrame.instance.setVisible(false);
-                 }           
+                GameFrame.startGame(() -> PixelPinesProtection.main.Game.main(null));                           
             }
         });
         
@@ -99,12 +86,7 @@ public class MainPanel extends JPanel {
         add(btnNewButton_2);
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                 if (!GameFrame.gameRunning) {
-                     
-                     GameFrame.gameRunning = true;
-                     CodeInvaders_Game.GameDisplay.Display.main(null);
-                     GameFrame.instance.setVisible(false);
-                 }              
+                GameFrame.startGame(() -> CodeInvaders_Game.GameDisplay.Display.main(null));                           
             }
         });
         
@@ -135,12 +117,7 @@ public class MainPanel extends JPanel {
         add(btnNewButton_5);
         btnNewButton_5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                 if (!GameFrame.gameRunning) {
-                     
-                     GameFrame.gameRunning = true;
-                     jan.game.source.Main.main(null);
-                     GameFrame.instance.setVisible(false);
-                 }         
+                GameFrame.startGame(() -> jan.game.source.Main.main(null));                              
             }
         });
         
@@ -150,12 +127,8 @@ public class MainPanel extends JPanel {
         add(btnNewButton_6);
         btnNewButton_6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                 if (!GameFrame.gameRunning) {
-                     
-                     GameFrame.gameRunning = true;
-                     jan.game.source.Main.main(null);
-                     GameFrame.instance.setVisible(false);
-                 }         
+                GameFrame.startGame(() -> jan.game.source.Main.main(null));                         
+         
             }
         });
         
