@@ -1,0 +1,16 @@
+  Player and Enemy Sprites
+Sander Frenken's Universal LPC Spritesheet Character Generator
+https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-
+Generator
+
+  World Sprites
+Cainos' Pixel Art Top-Down Basic
+https://cainos.itch.io/pixel-art-top-down-basic
+
+  SFX
+Mixkit Free Sound Effects
+https://mixkit.co/free-sound-effects
+
+  Font
+VCR OSD Neue by Elli Sho
+https://www.dafont.com/vcrosdneue.font
