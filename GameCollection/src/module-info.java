@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author janmietzelfeld
+ *
+ */
+module GameCollection {
+}
