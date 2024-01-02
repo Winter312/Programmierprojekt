@@ -100,7 +100,7 @@ public class GameMenu extends JPanel {
             
             @Override
             public void accept(Integer s) {
-                scoreText.setText(s.toString());
+                scoreText.setText("Score : " + s.toString());
             }
         });
         

@@ -66,7 +66,7 @@ public class StartMenu extends JPanel {
         lblNewLabel_1.setForeground(new Color(127, 127, 127));
         add(lblNewLabel_1);
         
-        JLabel lblNewLabel = new JLabel("Game Name");
+        JLabel lblNewLabel = new JLabel("ARMY OF DEATH");
         lblNewLabel.setBounds(0, 80, 900, 54);
         add(lblNewLabel);
         lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 45));
