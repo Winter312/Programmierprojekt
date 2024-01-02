@@ -42,30 +42,9 @@ public class MainPanel extends JPanel {
                 
                 if (!GameFrame.gameRunning) {
                     
-                    GameFrame.gameRunning = false;
-                    thread = new Thread(new Runnable() {
-                        
-                        @Override
-                        public void run() {
-                            PixelPinesProtection.main.Game.main(null);
-                            
-                        }
-                    });
-                    
+                    GameFrame.gameRunning = true;
+                    ezgin.src.main.Main.main(null);                            
                     GameFrame.instance.setVisible(false);
-
-                    thread.start();
-                    
-                    
-                    
-                    try {
-                        thread.join();
-                    } catch (InterruptedException e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
-                    }
-                    
-                    GameFrame.instance.setVisible(true);
 
                 }
 
@@ -81,7 +60,7 @@ public class MainPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                  if (!GameFrame.gameRunning) {
                      
-                     GameFrame.gameRunning = false;
+                     GameFrame.gameRunning = true;
                      Fatjon.Javamory.source.JavamoryFrame.main(null);
                      GameFrame.instance.setVisible(false);
                  }
@@ -107,8 +86,8 @@ public class MainPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                  if (!GameFrame.gameRunning) {
                      
-                     GameFrame.gameRunning = false;
-                     jan.game.source.Main.main(null);
+                     GameFrame.gameRunning = true;
+                     PixelPinesProtection.main.Game.main(null);
                      GameFrame.instance.setVisible(false);
                  }           
             }
@@ -122,7 +101,7 @@ public class MainPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                  if (!GameFrame.gameRunning) {
                      
-                     GameFrame.gameRunning = false;
+                     GameFrame.gameRunning = true;
                      CodeInvaders_Game.GameDisplay.Display.main(null);
                      GameFrame.instance.setVisible(false);
                  }              
@@ -158,7 +137,7 @@ public class MainPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                  if (!GameFrame.gameRunning) {
                      
-                     GameFrame.gameRunning = false;
+                     GameFrame.gameRunning = true;
                      jan.game.source.Main.main(null);
                      GameFrame.instance.setVisible(false);
                  }         
@@ -173,7 +152,7 @@ public class MainPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                  if (!GameFrame.gameRunning) {
                      
-                     GameFrame.gameRunning = false;
+                     GameFrame.gameRunning = true;
                      jan.game.source.Main.main(null);
                      GameFrame.instance.setVisible(false);
                  }         

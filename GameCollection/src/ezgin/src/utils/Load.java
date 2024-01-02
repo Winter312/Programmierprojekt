@@ -118,7 +118,7 @@ public class Load {
      */
     public static Font getFont() {
         try {
-            Font load = Font.createFont(0, new java.io.File("GameCollection/src/ezgin/res/VCRosdNEUE.ttf"));
+            Font load = Font.createFont(0, Load.class.getResourceAsStream("/ezgin/res/VCRosdNEUE.ttf"));
             return load.deriveFont(6f * SCALE);
         } catch (Exception e) {
             return null;
