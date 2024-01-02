@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author janmietzelfeld
- *
- */
-module GameCollection {
-}
