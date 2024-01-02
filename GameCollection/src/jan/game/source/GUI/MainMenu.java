@@ -50,6 +50,7 @@ public class MainMenu extends JPanel {
         JButton btnNewButton_1 = new JButton("HOW TO PLAY");
         btnNewButton_1.setFont(new Font("Lucida Grande", Font.PLAIN, 22));
         btnNewButton_1.setForeground(new Color(255, 255, 255));
+        btnNewButton_1.setBackground(new Color(34, 34, 34));
         btnNewButton_1.setBorderPainted(false);
         btnNewButton_1.setBounds(350, 280, 200, 40);
         btnNewButton_1.addActionListener(e -> Game_Controller.getGame_C_Ref().fireEvent(Game_Controller.ACTION.TUTORIAL));
@@ -58,6 +59,7 @@ public class MainMenu extends JPanel {
         JButton btnNewButton_2 = new JButton("SETTINGS");
         btnNewButton_2.setFont(new Font("Lucida Grande", Font.PLAIN, 22));
         btnNewButton_2.setForeground(new Color(255, 255, 255));
+        btnNewButton_2.setBackground(new Color(34, 34, 34));
         btnNewButton_2.setBorderPainted(false);
         btnNewButton_2.setBounds(375, 380, 150, 40);
         btnNewButton_2.addActionListener(e -> Game_Controller.getGame_C_Ref().fireEvent(Game_Controller.ACTION.SETTINGS));
@@ -67,6 +69,7 @@ public class MainMenu extends JPanel {
         btnNewButton_3.setFont(new Font("Lucida Grande", Font.PLAIN, 22));
         btnNewButton_3.setBorderPainted(false);
         btnNewButton_3.setForeground(new Color(252, 255, 255));
+        btnNewButton_3.setBackground(new Color(34, 34, 34));
         btnNewButton_3.setBounds(375, 480, 150, 40);
         btnNewButton_3.addActionListener(e -> Game_Controller.getGame_C_Ref().fireEvent(Game_Controller.ACTION.QUIT));
         add(btnNewButton_3);

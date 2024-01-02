@@ -14,6 +14,9 @@ public class GameFrame extends JFrame {
 
     public static GameFrame instance;
     
+    public static boolean gameRunning = false;
+
+    
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
 
@@ -28,7 +31,7 @@ public class GameFrame extends JFrame {
                     instance.setVisible(true);
                     MainPanel mainPanel = new MainPanel();
                     instance.getLayeredPane().add(mainPanel);
-                    mainPanel.setBounds(0, 0, instance.getWidth(), instance.getHeight()-30);
+                    mainPanel.setBounds(0, 0, instance.getWidth(), instance.getHeight()-28);
                     instance.setFocusable(true);
 
                 } catch (Exception e) {
@@ -62,4 +65,6 @@ public class GameFrame extends JFrame {
         this.dispose();
     
     }
+    
+    
 }
