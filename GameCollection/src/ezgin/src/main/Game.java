@@ -1,4 +1,5 @@
-package main;
+package ezgin.src.main;
+
 
 /**
  * Game-Klasse

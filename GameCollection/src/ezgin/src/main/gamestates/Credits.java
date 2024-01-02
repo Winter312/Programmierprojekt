@@ -1,14 +1,14 @@
-package main.gamestates;
-
-import main.enums.GameState;
-import main.ui.buttons.DefaultButton;
-import utils.Load;
+package ezgin.src.main.gamestates;
 
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
-import static utils.Constants.ImageConstants.BI_CREDITS_BACKGROUND;
-import static utils.Constants.UIConstants.*;
+import ezgin.src.main.enums.GameState;
+import ezgin.src.main.ui.buttons.DefaultButton;
+import ezgin.src.utils.Load;
+
+import static ezgin.src.utils.Constants.ImageConstants.BI_CREDITS_BACKGROUND;
+import static ezgin.src.utils.Constants.UIConstants.*;
 
 /**
  * Klasse, die den Credits-GameState repräsentiert

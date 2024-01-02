@@ -1,20 +1,19 @@
-package main;
-
-import main.entities.EntityHandler;
-import main.entities.SuperEntity;
-import main.gamestates.InGame;
-
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
+package ezgin.src.main;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
-import static main.enums.GameState.*;
-import static main.enums.Level.LEVEL_CASTLE;
-import static main.enums.Level.getCurrentLevel;
-import static utils.Constants.GameConstants.*;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 
+import ezgin.src.main.entities.EntityHandler;
+import ezgin.src.main.entities.SuperEntity;
+import ezgin.src.main.gamestates.InGame;
+
+import static ezgin.src.main.enums.GameState.*;
+import static ezgin.src.main.enums.Level.LEVEL_CASTLE;
+import static ezgin.src.main.enums.Level.getCurrentLevel;
+import static ezgin.src.utils.Constants.GameConstants.*;
 /**
  * GameController-Klasse
  * ist für die Steuerung des Spiels zuständig

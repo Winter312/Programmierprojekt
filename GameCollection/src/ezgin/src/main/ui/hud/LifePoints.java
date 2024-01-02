@@ -1,12 +1,12 @@
-package main.ui.hud;
+package ezgin.src.main.ui.hud;
 
-import main.entities.SuperLivingEntity;
-import main.entities.livingentities.Enemy;
-import main.entities.livingentities.Player;
+import ezgin.src.main.entities.SuperLivingEntity;
+import ezgin.src.main.entities.livingentities.Enemy;
+import ezgin.src.main.entities.livingentities.Player;
 
-import static main.enums.Item.LIFE_STONE;
-import static utils.Constants.GameConstants.TILE_SIZE;
-import static utils.Constants.UIConstants.MENU_TILE_SIZE;
+import static ezgin.src.main.enums.Item.LIFE_STONE;
+import static ezgin.src.utils.Constants.GameConstants.TILE_SIZE;
+import static ezgin.src.utils.Constants.UIConstants.MENU_TILE_SIZE;
 
 /**
  * Klasse für die Lebenspunkte

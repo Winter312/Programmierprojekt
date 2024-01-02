@@ -1,15 +1,16 @@
-package main.entities.nonlivingentities;
+package ezgin.src.main.entities.nonlivingentities;
 
-import main.entities.EntityHandler;
-import main.entities.SuperEntity;
+import java.awt.Rectangle;
 
 import javax.sound.sampled.Clip;
-import java.awt.*;
 
-import static utils.Constants.GameConstants.TILE_SIZE;
-import static utils.Constants.ImageConstants.PA_CHEST;
-import static utils.Constants.SpawnConstants.getChestSpawn;
+import ezgin.src.main.entities.EntityHandler;
+import ezgin.src.main.entities.SuperEntity;
 
+
+import static ezgin.src.utils.Constants.GameConstants.TILE_SIZE;
+import static ezgin.src.utils.Constants.ImageConstants.PA_CHEST;
+import static ezgin.src.utils.Constants.SpawnConstants.getChestSpawn;
 /**
  * Klasse für Truhen
  */

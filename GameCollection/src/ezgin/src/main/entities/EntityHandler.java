@@ -1,22 +1,28 @@
-package main.entities;
+package ezgin.src.main.entities;
 
-import main.entities.livingentities.Enemy;
-import main.entities.livingentities.Player;
-import main.entities.nonlivingentities.*;
-import main.gamestates.InGame;
 
 import java.awt.geom.Point2D;
 
-import static utils.Constants.EntitySpriteConstants.RUN_UP;
-import static utils.Constants.GameConstants.*;
-import static utils.Constants.GameConstants.SCREEN_Y_DEFAULT;
-import static utils.Constants.ImageConstants.*;
-import static utils.Constants.SpawnConstants.getEntityCount;
+import ezgin.src.main.entities.livingentities.Enemy;
+import ezgin.src.main.entities.livingentities.Player;
+import ezgin.src.main.entities.nonlivingentities.CheckPoint;
+import ezgin.src.main.entities.nonlivingentities.Chest;
+import ezgin.src.main.entities.nonlivingentities.Door;
+import ezgin.src.main.entities.nonlivingentities.Lumina;
+import ezgin.src.main.entities.nonlivingentities.Stela;
+import ezgin.src.main.gamestates.InGame;
+
+import static ezgin.src.utils.Constants.EntitySpriteConstants.RUN_UP;
+import static ezgin.src.utils.Constants.GameConstants.*;
+import static ezgin.src.utils.Constants.GameConstants.SCREEN_Y_DEFAULT;
+import static ezgin.src.utils.Constants.ImageConstants.*;
+import static ezgin.src.utils.Constants.SpawnConstants.getEntityCount;
 
 /**
  * Klasse für die Verwaltung der Entities
  */
 public class EntityHandler {
+    
 
     private static EntityHandler instance; // Singleton-Instanz
 

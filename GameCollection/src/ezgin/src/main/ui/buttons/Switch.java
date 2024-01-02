@@ -1,9 +1,9 @@
-package main.ui.buttons;
+package ezgin.src.main.ui.buttons;
 
 import java.awt.image.BufferedImage;
 
-import static utils.Constants.ImageConstants.BI_SWITCH;
-import static utils.Constants.ImageConstants.BI_SWITCH_BACKGROUND;
+import static ezgin.src.utils.Constants.ImageConstants.BI_SWITCH;
+import static ezgin.src.utils.Constants.ImageConstants.BI_SWITCH_BACKGROUND;
 
 /**
  * Klasse für den Schalter

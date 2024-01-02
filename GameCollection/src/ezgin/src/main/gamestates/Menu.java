@@ -1,16 +1,16 @@
-package main.gamestates;
-
-import main.GameController;
-import main.ui.buttons.DefaultButton;
-import main.enums.GameState;
+package ezgin.src.main.gamestates;
 
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
-import static utils.Constants.GameConstants.MUSIC_MENU;
-import static utils.Constants.ImageConstants.BI_MENU_BACKGROUND;
-import static utils.Constants.UIConstants.MENU_TILE_SIZE;
+import ezgin.src.main.GameController;
+import ezgin.src.main.enums.GameState;
+import ezgin.src.main.ui.buttons.DefaultButton;
 
+
+import static ezgin.src.utils.Constants.GameConstants.MUSIC_MENU;
+import static ezgin.src.utils.Constants.ImageConstants.BI_MENU_BACKGROUND;
+import static ezgin.src.utils.Constants.UIConstants.MENU_TILE_SIZE;
 /**
  * Klasse, die den Menu-GameState repräsentiert
  */

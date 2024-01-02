@@ -1,31 +1,34 @@
-package main.gamestates;
+package ezgin.src.main.gamestates;
 
-import main.GameController;
-import main.entities.*;
-import main.entities.livingentities.Enemy;
-import main.entities.nonlivingentities.CheckPoint;
-import main.entities.nonlivingentities.Chest;
-import main.enums.Level;
-import main.enums.TutorialState;
-import main.ui.buttons.DefaultButton;
-import main.ui.buttons.MiniButton;
-
-import javax.sound.sampled.DataLine;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static main.enums.GameState.*;
-import static main.enums.Level.*;
-import static main.enums.TutorialState.*;
-import static utils.Constants.GameConstants.*;
-import static utils.Constants.GameConstants.SCREEN_HEIGHT;
-import static utils.Constants.ImageConstants.*;
-import static utils.Constants.UIConstants.*;
-import static utils.Load.getLevelData;
+import javax.sound.sampled.DataLine;
 
+import ezgin.src.main.GameController;
+import ezgin.src.main.entities.EntityHandler;
+import ezgin.src.main.entities.SuperEntity;
+import ezgin.src.main.entities.SuperLivingEntity;
+import ezgin.src.main.entities.livingentities.Enemy;
+import ezgin.src.main.entities.nonlivingentities.CheckPoint;
+import ezgin.src.main.entities.nonlivingentities.Chest;
+import ezgin.src.main.enums.Level;
+import ezgin.src.main.enums.TutorialState;
+import ezgin.src.main.ui.buttons.DefaultButton;
+import ezgin.src.main.ui.buttons.MiniButton;
+
+
+import static ezgin.src.main.enums.GameState.*;
+import static ezgin.src.main.enums.Level.*;
+import static ezgin.src.main.enums.TutorialState.*;
+import static ezgin.src.utils.Constants.GameConstants.*;
+import static ezgin.src.utils.Constants.GameConstants.SCREEN_HEIGHT;
+import static ezgin.src.utils.Constants.ImageConstants.*;
+import static ezgin.src.utils.Constants.UIConstants.*;
+import static ezgin.src.utils.Load.getLevelData;
 /**
  * Klasse, die den InGame-GameState repräsentiert
  */

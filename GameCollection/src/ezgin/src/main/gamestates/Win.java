@@ -1,15 +1,15 @@
-package main.gamestates;
-
-import main.ui.buttons.DefaultButton;
-import main.enums.GameState;
+package ezgin.src.main.gamestates;
 
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
-import static utils.Constants.GameConstants.SCREEN_WIDTH;
-import static utils.Constants.ImageConstants.BI_GAME_OVER_BACKGROUND;
-import static utils.Constants.UIConstants.BUTTON_WIDTH;
-import static utils.Constants.UIConstants.MENU_TILE_SIZE;
+import ezgin.src.main.enums.GameState;
+import ezgin.src.main.ui.buttons.DefaultButton;
+
+import static ezgin.src.utils.Constants.GameConstants.SCREEN_WIDTH;
+import static ezgin.src.utils.Constants.ImageConstants.BI_GAME_OVER_BACKGROUND;
+import static ezgin.src.utils.Constants.UIConstants.BUTTON_WIDTH;
+import static ezgin.src.utils.Constants.UIConstants.MENU_TILE_SIZE;
 
 /**
  * Klasse, die den Win-GameState repräsentiert

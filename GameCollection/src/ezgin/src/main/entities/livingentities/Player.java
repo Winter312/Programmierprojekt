@@ -1,17 +1,17 @@
-package main.entities.livingentities;
+package ezgin.src.main.entities.livingentities;
 
-import main.gamestates.InGame;
-import main.ui.hud.Inventory;
-import main.entities.SuperLivingEntity;
-
-import static main.enums.Level.*;
-import static utils.Constants.GameConstants.*;
-import static utils.Constants.ImageConstants.*;
-import static utils.Constants.SpawnConstants.getPlayerSpawn;
-import static utils.Constants.EntitySpriteConstants.*;
-
-import java.awt.*;
+import java.awt.Rectangle;
 import java.awt.geom.Point2D;
+
+import ezgin.src.main.entities.SuperLivingEntity;
+import ezgin.src.main.gamestates.InGame;
+import ezgin.src.main.ui.hud.Inventory;
+
+import static ezgin.src.main.enums.Level.*;
+import static ezgin.src.utils.Constants.GameConstants.*;
+import static ezgin.src.utils.Constants.ImageConstants.*;
+import static ezgin.src.utils.Constants.SpawnConstants.getPlayerSpawn;
+import static ezgin.src.utils.Constants.EntitySpriteConstants.*;
 
 /**
  * Klasse für den Spieler

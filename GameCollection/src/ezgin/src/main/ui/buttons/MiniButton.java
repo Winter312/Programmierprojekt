@@ -1,9 +1,9 @@
-package main.ui.buttons;
+package ezgin.src.main.ui.buttons;
 
-import static utils.Constants.GameConstants.TILE_SIZE_DEFAULT;
-import static utils.Constants.ImageConstants.BI_MINI_BUTTON;
-import static utils.Constants.ImageConstants.BI_MINI_SELECTED;
-import static utils.Constants.UIConstants.MENU_TILE_SIZE;
+import static  ezgin.src.utils.Constants.GameConstants.TILE_SIZE_DEFAULT;
+import static  ezgin.src.utils.Constants.ImageConstants.BI_MINI_BUTTON;
+import static  ezgin.src.utils.Constants.ImageConstants.BI_MINI_SELECTED;
+import static  ezgin.src.utils.Constants.UIConstants.MENU_TILE_SIZE;
 
 /**
  * Klasse für einen kleinen Button

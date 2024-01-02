@@ -1,12 +1,14 @@
-package main.ui.buttons;
+package ezgin.src.main.ui.buttons;
+
+
 
 import java.awt.image.BufferedImage;
 
-import static utils.Constants.GameConstants.TILE_SIZE_DEFAULT;
-import static utils.Constants.ImageConstants.BI_BUTTON;
-import static utils.Constants.ImageConstants.BI_SELECTED;
-import static utils.Constants.UIConstants.BUTTON_HEIGHT;
-import static utils.Constants.UIConstants.BUTTON_WIDTH;
+import static ezgin.src.utils.Constants.GameConstants.TILE_SIZE_DEFAULT;
+import static ezgin.src.utils.Constants.ImageConstants.BI_BUTTON;
+import static ezgin.src.utils.Constants.ImageConstants.BI_SELECTED;
+import static ezgin.src.utils.Constants.UIConstants.BUTTON_HEIGHT;
+import static ezgin.src.utils.Constants.UIConstants.BUTTON_WIDTH;
 
 /**
  * Klasse für den Standard-Button

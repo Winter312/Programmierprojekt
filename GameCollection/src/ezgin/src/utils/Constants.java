@@ -1,19 +1,20 @@
-package utils;
+package ezgin.src.utils;
 
-import main.entities.EntityHandler;
-import main.enums.GameState;
-
-import javax.sound.sampled.Clip;
-import java.awt.*;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.Objects;
 
-import static main.enums.Level.LEVEL_THREE;
-import static main.enums.Level.getCurrentLevel;
-import static main.enums.TutorialState.getCurrentTutorialState;
-import static utils.Constants.GameConstants.*;
-import static utils.Constants.ImageConstants.*;
-import static utils.Load.getImageFile;
+import javax.sound.sampled.Clip;
+
+import ezgin.src.main.entities.EntityHandler;
+import ezgin.src.main.enums.GameState;
+
+import static ezgin.src.main.enums.Level.LEVEL_THREE;
+import static ezgin.src.main.enums.Level.getCurrentLevel;
+import static ezgin.src.main.enums.TutorialState.getCurrentTutorialState;
+import static ezgin.src.utils.Constants.GameConstants.*;
+import static ezgin.src.utils.Constants.ImageConstants.*;
+import static ezgin.src.utils.Load.getImageFile;
 
 /**
  * Klasse für die Konstanten
@@ -654,42 +655,42 @@ public class Constants {
         }
 
         // Bilder der Welt (Layer 1 und 2 und LevelData)
-        public static final BufferedImage[] BI_LEVEL_ZERO = {getImageFile("ingame/maps/level_0_layer_1.png"), getImageFile("ingame/maps/level_0_layer_2.png"), getImageFile("ingame/maps/level_0_data.png")};
-        public static final BufferedImage[] BI_LEVEL_ONE = {getImageFile("ingame/maps/level_1_layer_1.png"), getImageFile("ingame/maps/level_1_layer_2.png"), getImageFile("ingame/maps/level_1_data.png")};
-        public static final BufferedImage[] BI_LEVEL_TWO = {getImageFile("ingame/maps/level_2_layer_1.png"), getImageFile("ingame/maps/level_2_layer_2.png"), getImageFile("ingame/maps/level_2_data.png")};
-        public static final BufferedImage[] BI_LEVEL_THREE = {getImageFile("ingame/maps/level_3_layer_1.png"), getImageFile("ingame/maps/level_3_layer_2.png"), getImageFile("ingame/maps/level_3_data.png")};
-        public static final BufferedImage[] BI_LEVEL_CASTLE = {getImageFile("ingame/maps/level_castle_layer_1.png"), getImageFile("ingame/maps/level_castle_layer_2.png"), getImageFile("ingame/maps/level_castle_data.png")};
+        public static final BufferedImage[] BI_LEVEL_ZERO = {getImageFile("ezgin/res/ingame/maps/level_0_layer_1.png"), getImageFile("ezgin/res/ingame/maps/level_0_layer_2.png"), getImageFile("ezgin/res/ingame/maps/level_0_data.png")};
+        public static final BufferedImage[] BI_LEVEL_ONE = {getImageFile("ezgin/res/ingame/maps/level_1_layer_1.png"), getImageFile("ezgin/res/ingame/maps/level_1_layer_2.png"), getImageFile("ezgin/res/ingame/maps/level_1_data.png")};
+        public static final BufferedImage[] BI_LEVEL_TWO = {getImageFile("ezgin/res/ingame/maps/level_2_layer_1.png"), getImageFile("ezgin/res/ingame/maps/level_2_layer_2.png"), getImageFile("ezgin/res/ingame/maps/level_2_data.png")};
+        public static final BufferedImage[] BI_LEVEL_THREE = {getImageFile("ezgin/res/ingame/maps/level_3_layer_1.png"), getImageFile("ezgin/res/ingame/maps/level_3_layer_2.png"), getImageFile("ezgin/res/ingame/maps/level_3_data.png")};
+        public static final BufferedImage[] BI_LEVEL_CASTLE = {getImageFile("ezgin/res/ingame/maps/level_castle_layer_1.png"), getImageFile("ezgin/res/ingame/maps/level_castle_layer_2.png"), getImageFile("ezgin/res/ingame/maps/level_castle_data.png")};
 
 
         // Bilder der Items
-        public static final BufferedImage BI_DAGGER = getImageFile("ingame/ui/dagger.png");
-        public static final BufferedImage BI_RUNE_STONE = getImageFile("ingame/ui/runestone.png");
-        public static final BufferedImage BI_SHIELD = getImageFile("ingame/ui/shield.png");
-        public static final BufferedImage BI_KEY = getImageFile("ingame/ui/key.png");
-        public static final BufferedImage BI_CRYSTAL = getImageFile("ingame/ui/crystal.png");
-        public static final BufferedImage BI_OBSIDIAN = getImageFile("ingame/ui/obsidian.png");
+        public static final BufferedImage BI_DAGGER = getImageFile("ezgin/res/ingame/ui/dagger.png");
+        public static final BufferedImage BI_RUNE_STONE = getImageFile("ezgin/res/ingame/ui/runestone.png");
+        public static final BufferedImage BI_SHIELD = getImageFile("ezgin/res/ingame/ui/shield.png");
+        public static final BufferedImage BI_KEY = getImageFile("ezgin/res/ingame/ui/key.png");
+        public static final BufferedImage BI_CRYSTAL = getImageFile("ezgin/res/ingame/ui/crystal.png");
+        public static final BufferedImage BI_OBSIDIAN = getImageFile("ezgin/res/ingame/ui/obsidian.png");
 
         // Bilder der Buttons
-        public static final BufferedImage BI_BUTTON = getImageFile("buttons/button.png");
-        public static final BufferedImage BI_MINI_BUTTON = getImageFile("buttons/mini_button.png");
-        public static final BufferedImage BI_SWITCH = getImageFile("buttons/switch.png");
-        public static final BufferedImage BI_SELECTED = getImageFile("buttons/selection.png");
-        public static final BufferedImage BI_MINI_SELECTED = getImageFile("buttons/mini_selection.png");
-        public static final BufferedImage[] BI_PAUSE_BUTTONS = {getImageFile("pause/play.png"), getImageFile("pause/settings.png"), getImageFile("pause/menu.png")};
+        public static final BufferedImage BI_BUTTON = getImageFile("ezgin/res/buttons/button.png");
+        public static final BufferedImage BI_MINI_BUTTON = getImageFile("ezgin/res/buttons/mini_button.png");
+        public static final BufferedImage BI_SWITCH = getImageFile("ezgin/res/buttons/switch.png");
+        public static final BufferedImage BI_SELECTED = getImageFile("ezgin/res/buttons/selection.png");
+        public static final BufferedImage BI_MINI_SELECTED = getImageFile("ezgin/res/buttons/mini_selection.png");
+        public static final BufferedImage[] BI_PAUSE_BUTTONS = {getImageFile("ezgin/res/pause/play.png"), getImageFile("ezgin/res/pause/settings.png"), getImageFile("ezgin/res/pause/menu.png")};
 
         // Bilder der Tasten
-        public static final BufferedImage BI_MOUSE = getImageFile("ingame/ui/mouse.png");
-        public static final BufferedImage BI_ENTER = getImageFile("ingame/ui/enter.png");
-        public static final BufferedImage BI_TAB = getImageFile("ingame/ui/tab.png");
-        public static final BufferedImage BI_SHIFT = getImageFile("ingame/ui/shift.png");
+        public static final BufferedImage BI_MOUSE = getImageFile("ezgin/res/ingame/ui/mouse.png");
+        public static final BufferedImage BI_ENTER = getImageFile("ezgin/res/ingame/ui/enter.png");
+        public static final BufferedImage BI_TAB = getImageFile("ezgin/res/ingame/ui/tab.png");
+        public static final BufferedImage BI_SHIFT = getImageFile("ezgin/res/ingame/ui/shift.png");
 
         // Hintergrundbilder
-        public static final BufferedImage BI_MENU_BACKGROUND = getImageFile("menu/background.png");
-        public static final BufferedImage BI_SETTINGS_BACKGROUND = getImageFile("settings/background.png");
-        public static final BufferedImage BI_CREDITS_BACKGROUND = getImageFile("credits/background.png");
-        public static final BufferedImage BI_PAUSE_BACKGROUND = getImageFile("pause/background.png");
-        public static final BufferedImage BI_GAME_OVER_BACKGROUND = getImageFile("game_over/background.png");
-        public static final BufferedImage BI_SWITCH_BACKGROUND = getImageFile("buttons/switch_background.png");
+        public static final BufferedImage BI_MENU_BACKGROUND = getImageFile("ezgin/res/menu/background.png");
+        public static final BufferedImage BI_SETTINGS_BACKGROUND = getImageFile("ezgin/res/settings/background.png");
+        public static final BufferedImage BI_CREDITS_BACKGROUND = getImageFile("ezgin/res/credits/background.png");
+        public static final BufferedImage BI_PAUSE_BACKGROUND = getImageFile("ezgin/res/pause/background.png");
+        public static final BufferedImage BI_GAME_OVER_BACKGROUND = getImageFile("ezgin/res/game_over/background.png");
+        public static final BufferedImage BI_SWITCH_BACKGROUND = getImageFile("ezgin/res/buttons/switch_background.png");
     }
 
     /**

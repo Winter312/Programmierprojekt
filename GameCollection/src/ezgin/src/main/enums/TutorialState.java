@@ -1,4 +1,5 @@
-package main.enums;
+package ezgin.src.main.enums;
+
 
 /**
  * Enum für den Tutorial-Status.

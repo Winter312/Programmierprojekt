@@ -1,16 +1,21 @@
-package utils;
+package ezgin.src.utils;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Objects;
 
 import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Objects;
 
-import static utils.Constants.GameConstants.*;
-import static utils.Constants.EntitySpriteConstants.*;
+import static ezgin.src.utils.Constants.GameConstants.*;
+import static ezgin.src.utils.Constants.EntitySpriteConstants.*;
 
 /**
  * Klasse für das Laden von Bildern
@@ -47,7 +52,7 @@ public class Load {
      * @return return BufferedImage[][] (2D-Array)
      */
     public static BufferedImage[][] getEntitySprites(String name) {
-        BufferedImage image = getImageFile("ingame/entities/" + name);
+        BufferedImage image = getImageFile("ezgin/res/ingame/entities/" + name);
         BufferedImage[][] imageArr = new BufferedImage[getSpriteCountHeight(name)][getSpriteCountWidth(name)];
         for (int i = 0; i < imageArr.length; i++) {
             for (int j = 0; j < imageArr[i].length; j++) {
@@ -81,7 +86,7 @@ public class Load {
      * @return BufferedImage[]
      */
     public static BufferedImage[] getUiImages(String imageName) {
-        BufferedImage image = getImageFile("ingame/ui/" + imageName);
+        BufferedImage image = getImageFile("ezgin/res/ingame/ui/" + imageName);
         BufferedImage[] imageArr = new BufferedImage[image.getWidth() / 32];
         for (int i = 0; i < imageArr.length; i++) {
             imageArr[i] = image.getSubimage(i * 32, 0, 32, 32);
@@ -98,7 +103,7 @@ public class Load {
     public static Clip getAudioClip(String audioName) {
         try {
             Clip clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(Objects.requireNonNull(Load.class.getResource("/audios/" + audioName))));
+            clip.open(AudioSystem.getAudioInputStream(Objects.requireNonNull(Load.class.getResource("/ezgin/res/audios/" + audioName))));
             return clip;
         } catch (Exception e) {
             e.printStackTrace();
@@ -113,7 +118,7 @@ public class Load {
      */
     public static Font getFont() {
         try {
-            Font load = Font.createFont(0, new java.io.File("res/VCRosdNEUE.ttf"));
+            Font load = Font.createFont(0, new java.io.File("ezgin/res/VCRosdNEUE.ttf"));
             return load.deriveFont(6f * SCALE);
         } catch (Exception e) {
             return null;
@@ -133,7 +138,7 @@ public class Load {
         // Liste von Zeilen
         ArrayList<String> currentParagraph = new ArrayList<>();
 
-        InputStream is = Load.class.getResourceAsStream("/ingame/levelText.txt");
+        InputStream is = Load.class.getResourceAsStream("/ezgin/res/ingame/levelText.txt");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
             String line;
             // Lese die Textdatei Zeile für Zeile
@@ -184,7 +189,7 @@ public class Load {
     public static String[] getCredits() {
         ArrayList<String> credits = new ArrayList<>();
 
-        InputStream is = Load.class.getResourceAsStream("/credits/credits.txt");
+        InputStream is = Load.class.getResourceAsStream("/ezgin/res/credits/credits.txt");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
             String line;
             // Lese die Textdatei Zeile für Zeile

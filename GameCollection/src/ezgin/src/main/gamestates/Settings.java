@@ -1,19 +1,19 @@
-package main.gamestates;
-
-import main.GameController;
-import main.ui.buttons.DefaultButton;
-import main.ui.buttons.SuperButton;
-import main.ui.buttons.Switch;
-import main.enums.GameState;
+package ezgin.src.main.gamestates;
 
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
 
-import static utils.Constants.ImageConstants.BI_SETTINGS_BACKGROUND;
-import static utils.Constants.UIConstants.MENU_TILE_SIZE;
-import static utils.Constants.UIConstants.settingsValues;
+import ezgin.src.main.GameController;
+import ezgin.src.main.enums.GameState;
+import ezgin.src.main.ui.buttons.DefaultButton;
+import ezgin.src.main.ui.buttons.SuperButton;
+import ezgin.src.main.ui.buttons.Switch;
 
+
+import static ezgin.src.utils.Constants.ImageConstants.BI_SETTINGS_BACKGROUND;
+import static ezgin.src.utils.Constants.UIConstants.MENU_TILE_SIZE;
+import static ezgin.src.utils.Constants.UIConstants.settingsValues;
 /**
  * Klasse, die den Settings-GameState repräsentiert
  */

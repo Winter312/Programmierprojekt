@@ -1,11 +1,12 @@
-package main.enums;
-
-import utils.Load;
+package ezgin.src.main.enums;
 
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
 
-import static utils.Constants.ImageConstants.*;
+import ezgin.src.utils.Load;
+
+import static ezgin.src.utils.Constants.ImageConstants.*;
+
 
 /**
  * Enum für die Level

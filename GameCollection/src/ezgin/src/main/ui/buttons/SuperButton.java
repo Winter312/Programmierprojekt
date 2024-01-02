@@ -1,11 +1,13 @@
-package main.ui.buttons;
+package ezgin.src.main.ui.buttons;
 
-import main.GameController;
+import java.awt.Rectangle;
 
 import javax.sound.sampled.Clip;
-import java.awt.*;
 
-import static utils.Load.getAudioClip;
+import ezgin.src.main.GameController;
+
+import static ezgin.src.utils.Load.getAudioClip;
+
 
 /**
  * Superklasse für alle Buttons

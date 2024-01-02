@@ -1,15 +1,15 @@
-package main.entities.livingentities;
+package ezgin.src.main.entities.livingentities;
 
-import main.entities.EntityHandler;
-import main.entities.SuperLivingEntity;
-
-import java.awt.*;
+import java.awt.Rectangle;
 import java.util.Random;
 
-import static utils.Constants.EntitySpriteConstants.*;
-import static utils.Constants.GameConstants.*;
-import static utils.Constants.ImageConstants.PA_ENEMY;
-import static utils.Constants.SpawnConstants.getEnemySpawn;
+import ezgin.src.main.entities.EntityHandler;
+import ezgin.src.main.entities.SuperLivingEntity;
+
+import static ezgin.src.utils.Constants.EntitySpriteConstants.*;
+import static ezgin.src.utils.Constants.GameConstants.*;
+import static ezgin.src.utils.Constants.ImageConstants.PA_ENEMY;
+import static ezgin.src.utils.Constants.SpawnConstants.getEnemySpawn;
 
 /**
  * Klasse für die Gegner

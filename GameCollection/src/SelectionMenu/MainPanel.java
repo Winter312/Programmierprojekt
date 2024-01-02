@@ -17,6 +17,9 @@ public class MainPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
 
+    Thread thread;
+
+    
     /**
      * Create the panel.
      */
@@ -40,8 +43,30 @@ public class MainPanel extends JPanel {
                 if (!GameFrame.gameRunning) {
                     
                     GameFrame.gameRunning = false;
-                    PixelPinesProtection.main.Game.main(null);
+                    thread = new Thread(new Runnable() {
+                        
+                        @Override
+                        public void run() {
+                            PixelPinesProtection.main.Game.main(null);
+                            
+                        }
+                    });
+                    
                     GameFrame.instance.setVisible(false);
+
+                    thread.start();
+                    
+                    
+                    
+                    try {
+                        thread.join();
+                    } catch (InterruptedException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+                    
+                    GameFrame.instance.setVisible(true);
+
                 }
 
             }

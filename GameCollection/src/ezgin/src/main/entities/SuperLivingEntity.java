@@ -1,17 +1,17 @@
-package main.entities;
+package ezgin.src.main.entities;
 
-import main.entities.livingentities.Enemy;
-import main.entities.livingentities.Player;
-import main.enums.Item;
-import main.gamestates.InGame;
-import main.ui.hud.LifePoints;
-
-import java.awt.*;
+import java.awt.Rectangle;
 import java.util.Arrays;
 
-import static utils.Constants.EntitySpriteConstants.*;
-import static utils.Constants.EntitySpriteConstants.ATTACK_DOWN;
-import static utils.Constants.GameConstants.SCALE;
+import ezgin.src.main.entities.livingentities.Enemy;
+import ezgin.src.main.entities.livingentities.Player;
+import ezgin.src.main.enums.Item;
+import ezgin.src.main.gamestates.InGame;
+import ezgin.src.main.ui.hud.LifePoints;
+
+import static ezgin.src.utils.Constants.EntitySpriteConstants.*;
+import static ezgin.src.utils.Constants.EntitySpriteConstants.ATTACK_DOWN;
+import static ezgin.src.utils.Constants.GameConstants.SCALE;
 
 /**
  * Klasse für die lebenden Entitäten

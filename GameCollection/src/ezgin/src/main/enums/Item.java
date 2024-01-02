@@ -1,10 +1,10 @@
-package main.enums;
+package ezgin.src.main.enums;
 
 import java.awt.image.BufferedImage;
 
-import static utils.Constants.GameConstants.SCALE;
-import static utils.Constants.GameConstants.TILE_SIZE;
-import static utils.Constants.ImageConstants.*;
+import static ezgin.src.utils.Constants.GameConstants.SCALE;
+import static ezgin.src.utils.Constants.GameConstants.TILE_SIZE;
+import static ezgin.src.utils.Constants.ImageConstants.*;
 
 /**
  * Enum für die Items

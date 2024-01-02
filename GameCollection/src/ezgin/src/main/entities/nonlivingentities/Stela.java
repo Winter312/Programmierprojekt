@@ -1,13 +1,13 @@
-package main.entities.nonlivingentities;
+package ezgin.src.main.entities.nonlivingentities;
 
-import main.entities.EntityHandler;
-import main.entities.SuperEntity;
+import java.awt.Rectangle;
 
-import java.awt.*;
+import ezgin.src.main.entities.EntityHandler;
+import ezgin.src.main.entities.SuperEntity;
 
-import static utils.Constants.GameConstants.*;
-import static utils.Constants.ImageConstants.PA_STELA;
-import static utils.Constants.SpawnConstants.getStelaSpawn;
+import static ezgin.src.utils.Constants.GameConstants.*;
+import static ezgin.src.utils.Constants.ImageConstants.PA_STELA;
+import static ezgin.src.utils.Constants.SpawnConstants.getStelaSpawn;
 
 /**
  * Klasse für Stelen

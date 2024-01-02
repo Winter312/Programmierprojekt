@@ -1,16 +1,17 @@
-package main.entities;
+package ezgin.src.main.entities;
 
-import main.GameController;
-import main.entities.nonlivingentities.Lumina;
-import main.entities.nonlivingentities.Stela;
-import main.gamestates.InGame;
-
-import javax.sound.sampled.Clip;
-import java.awt.*;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import static utils.Constants.EntitySpriteConstants.*;
-import static utils.Load.getEntitySprites;
+import javax.sound.sampled.Clip;
+
+import ezgin.src.main.GameController;
+import ezgin.src.main.entities.nonlivingentities.Lumina;
+import ezgin.src.main.entities.nonlivingentities.Stela;
+import ezgin.src.main.gamestates.InGame;
+
+import static ezgin.src.utils.Constants.EntitySpriteConstants.*;
+import static ezgin.src.utils.Load.getEntitySprites;
 
 /**
  * Klasse für die Entitäten

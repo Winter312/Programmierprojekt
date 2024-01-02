@@ -1,19 +1,19 @@
-package main.entities.nonlivingentities;
+package ezgin.src.main.entities.nonlivingentities;
 
-import main.entities.EntityHandler;
-import main.entities.SuperEntity;
-import main.entities.livingentities.Enemy;
-import main.gamestates.InGame;
-
-import java.awt.*;
+import java.awt.Rectangle;
 import java.util.Arrays;
 
-import static main.enums.Item.KEY;
-import static main.enums.Level.*;
-import static utils.Constants.GameConstants.TILE_SIZE;
-import static utils.Constants.ImageConstants.getDoor;
-import static utils.Constants.SpawnConstants.getDoorPos;
-import static utils.Constants.SpawnConstants.getDoorSpawn;
+import ezgin.src.main.entities.EntityHandler;
+import ezgin.src.main.entities.SuperEntity;
+import ezgin.src.main.entities.livingentities.Enemy;
+import ezgin.src.main.gamestates.InGame;
+
+import static ezgin.src.main.enums.Item.KEY;
+import static ezgin.src.main.enums.Level.*;
+import static ezgin.src.utils.Constants.GameConstants.TILE_SIZE;
+import static ezgin.src.utils.Constants.ImageConstants.getDoor;
+import static ezgin.src.utils.Constants.SpawnConstants.getDoorPos;
+import static ezgin.src.utils.Constants.SpawnConstants.getDoorSpawn;
 
 /**
  * Klasse für Türen

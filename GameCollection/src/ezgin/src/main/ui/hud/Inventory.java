@@ -1,15 +1,17 @@
-package main.ui.hud;
+package ezgin.src.main.ui.hud;
 
-import main.entities.livingentities.Player;
-import main.enums.*;
-import utils.Load;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.util.HashMap;
 
-import java.awt.*;
-import java.util.*;
+import ezgin.src.main.entities.livingentities.Player;
+import ezgin.src.main.enums.Item;
+import ezgin.src.main.enums.Level;
+import ezgin.src.utils.Load;
 
-import static main.enums.Level.*;
-import static utils.Constants.GameConstants.*;
-import static utils.Constants.ImageConstants.*;
+import static ezgin.src.main.enums.Level.*;
+import static ezgin.src.utils.Constants.GameConstants.*;
+import static ezgin.src.utils.Constants.ImageConstants.*;
 
 /**
  * Klasse für das Inventar

@@ -1,14 +1,14 @@
-package main.entities.nonlivingentities;
+package ezgin.src.main.entities.nonlivingentities;
 
-import main.entities.SuperEntity;
+import java.awt.Rectangle;
 
-import java.awt.*;
+import ezgin.src.main.entities.SuperEntity;
 
-import static main.enums.Level.LEVEL_THREE;
-import static main.enums.Level.getCurrentLevel;
-import static utils.Constants.GameConstants.TILE_SIZE;
-import static utils.Constants.ImageConstants.PA_LUMINA;
-import static utils.Constants.SpawnConstants.getLuminaSpawn;
+import static ezgin.src.main.enums.Level.LEVEL_THREE;
+import static ezgin.src.main.enums.Level.getCurrentLevel;
+import static ezgin.src.utils.Constants.GameConstants.TILE_SIZE;
+import static ezgin.src.utils.Constants.ImageConstants.PA_LUMINA;
+import static ezgin.src.utils.Constants.SpawnConstants.getLuminaSpawn;
 
 public class Lumina extends SuperEntity {
     public Lumina(int id) {

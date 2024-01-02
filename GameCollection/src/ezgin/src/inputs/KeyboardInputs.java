@@ -1,11 +1,11 @@
-package inputs;
-
-import main.enums.GameState;
-import main.gamestates.InGame;
-import main.gamestates.Pause;
+package ezgin.src.inputs;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import ezgin.src.main.enums.GameState;
+import ezgin.src.main.gamestates.InGame;
+import ezgin.src.main.gamestates.Pause;
 
 /**
  * Klasse für die Tastatureingaben
@@ -17,6 +17,7 @@ public class KeyboardInputs implements KeyListener {
 
     /**
      * gibt die Instanz der Klasse zurück
+     * 
      * @return Instanz der Klasse
      */
     public static KeyboardInputs getInstance() {
@@ -25,8 +26,10 @@ public class KeyboardInputs implements KeyListener {
         }
         return instance;
     }
+
     /**
      * wird ausgeführt, wenn eine Taste gedrückt und wieder losgelassen wird
+     * 
      * @param e KeyEvent
      */
     @Override
@@ -36,37 +39,39 @@ public class KeyboardInputs implements KeyListener {
 
     /**
      * wird ausgeführt, wenn eine Taste gedrückt wird
+     * 
      * @param e KeyEvent
      */
     @Override
     public void keyPressed(KeyEvent e) {
         switch (GameState.getCurrentState()) {
-            case MENU:
-                break;
-            case IN_GAME:
-                InGame.getInstance().keyPressed(e);
-                break;
-            case PAUSE:
-                Pause.getInstance().keyPressed(e);
-                break;
+        case MENU:
+            break;
+        case IN_GAME:
+            InGame.getInstance().keyPressed(e);
+            break;
+        case PAUSE:
+            Pause.getInstance().keyPressed(e);
+            break;
         }
     }
 
     /**
      * wird ausgeführt, wenn eine Taste losgelassen wird
+     * 
      * @param e KeyEvent
      */
     @Override
     public void keyReleased(KeyEvent e) {
         switch (GameState.getCurrentState()) {
-            case MENU:
-                break;
-            case IN_GAME:
-                InGame.getInstance().keyReleased(e);
-                break;
-            case PAUSE:
-                Pause.getInstance().keyReleased(e);
-                break;
+        case MENU:
+            break;
+        case IN_GAME:
+            InGame.getInstance().keyReleased(e);
+            break;
+        case PAUSE:
+            Pause.getInstance().keyReleased(e);
+            break;
         }
     }
 }
