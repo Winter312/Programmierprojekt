@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import CodeInvaders_Game.States.StateMachine;
+import PixelPinesProtection.main.Game;
 
 
 public class Display extends Canvas implements Runnable {
@@ -17,15 +18,24 @@ public class Display extends Canvas implements Runnable {
         frame.add(display);
         frame.pack();
         frame.setTitle("Code Invaders");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                running = false;
+                frame.dispose();
+            }
+        });
         frame.setResizable(false);
         frame.setVisible(true);
         display.start();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {e.printStackTrace();}
 
     }
-    private boolean running = false;
+    private static boolean running = false;
 
-    private Thread thread;
+    private static Thread thread;
 
     public synchronized void start(){
         if (running){
@@ -35,6 +45,8 @@ public class Display extends Canvas implements Runnable {
         running =true;
         thread = new Thread(this);
         thread.start();
+
+
     }
 
     public synchronized void stop(){
@@ -42,7 +54,7 @@ public class Display extends Canvas implements Runnable {
             return;
         }
         running = false;
-
+        
         try {
             thread.join();
         } catch (InterruptedException e) {e.printStackTrace();}

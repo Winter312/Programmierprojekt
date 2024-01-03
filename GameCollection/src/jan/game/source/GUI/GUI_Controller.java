@@ -28,6 +28,7 @@ public class GUI_Controller {
     private ArrayList<BaseObj> paneObjects = new ArrayList<>();
 
 
+
     /**
      * Konstruktor
      */
@@ -36,7 +37,12 @@ public class GUI_Controller {
 
         window = new JFrame();
         //Beim Schließen des fensters wird die Anwendung beendet
-        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        window.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        window.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                Game_Controller.getGame_C_Ref().fireEvent(Game_Controller.ACTION.QUIT);
+            }
+        });
         window.setLayout(null);
         window.setSize(Game_Controller.windowSize.x, Game_Controller.windowSize.y);
 

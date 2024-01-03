@@ -20,7 +20,7 @@ public class Game_Controller implements Runnable{
     
     private static GUI_Controller  mGUI_C_Ref;
     private static Game_Controller  mGame_C_Ref;
-    private Thread gameThread;
+    public Thread gameThread;
     private boolean mRunning = true;
     public static final int mTickrate = 1000 / 60; // Tickrate in 60 pro Sekunde
     
@@ -38,7 +38,9 @@ public class Game_Controller implements Runnable{
      */
     @Override
     public void run() {
+        
         long startTime = System.currentTimeMillis(), endTime;
+                
         while(mRunning){
             
             endTime = startTime;
@@ -60,6 +62,7 @@ public class Game_Controller implements Runnable{
                 }
             }
         }
+        
         try {
             mGUI_C_Ref.quit();
         } catch (IOException e) {
@@ -129,19 +132,36 @@ public class Game_Controller implements Runnable{
      * @throws InterruptedException 
      */
     public Game_Controller() {
+              
         mGame_C_Ref = this;
-        mGUI_C_Ref = new GUI_Controller(this);
-        AudioClip ac = new AudioClip();
-        ac.setFile("../../music/music.wav");
-        ac.play();
-        AudioManager.addMusicClip(ac);
-        setDifficulty(Difficulty.NORMAL);
+        
+        SwingUtilities.invokeLater(() -> 
+        {
+            AudioClip ac = new AudioClip();
+            
+            ac.setFile("../../music/music.wav");
+            
+            AudioManager.addMusicClip(ac);
+            
+            ac.play();
+            
+            mGUI_C_Ref = new GUI_Controller(this);
+        
+            setDifficulty(Difficulty.NORMAL);
 
-        //wechseln zum Menü
-        fireEvent(ACTION.STARTAPP);
+            //wechseln zum Menü
+            fireEvent(ACTION.STARTAPP);
+        });
+        
         //starten des Gameloop
         gameThread = new Thread(this);
         gameThread.start();
+        try {
+            gameThread.join();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
      }
     
     Spawner spawner;
@@ -153,6 +173,7 @@ public class Game_Controller implements Runnable{
      * @param newState
      */
     public void changeState(GAMESTATE newState){
+        
         state = newState;
         
         switch (state) {        

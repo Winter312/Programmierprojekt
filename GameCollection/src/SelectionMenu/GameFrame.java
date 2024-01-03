@@ -2,9 +2,11 @@ package SelectionMenu;
 
 import java.awt.EventQueue;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
 import jan.game.source.Game_Controller;
@@ -48,9 +50,29 @@ public class GameFrame extends JFrame {
         
         
         GameFrame.instance.setVisible(false);
-        Thread thread = new Thread(runnable);
         gameRunning = true;
-        thread.run();
+        GameFrame.instance.dispose();
+        Thread thread = new Thread(() -> {
+            
+            Thread thread2 = new Thread(() -> {
+                
+                runnable.run();
+                
+            });
+            
+            thread2.start();
+            try {
+                thread2.join();
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
+            gameRunning = false;
+            SwingUtilities.invokeLater(() ->  GameFrame.instance.setVisible(true));
+        });
+        
+        thread.start();    
     }
 
     /**

@@ -93,7 +93,15 @@ public class ExitDialog extends Dialog {
         // Fügt den Aktionen die entsprechenden Funktionalitäten hinzu
         continueButton.addActionListener(event -> handleContinueAction());
         goMenuButton.addActionListener(event -> handleGoMenuAction());
-        quitGameButton.addActionListener(event -> System.exit(0));
+        quitGameButton.addActionListener(e -> {
+            
+            JavamoryFrame.getInstanceOf().stopBackgroundMusic();
+
+            JavamoryFrame.getInstanceOf().dispose();
+
+            JavamoryFrame.running = false;
+
+        });
     }
 
     /**

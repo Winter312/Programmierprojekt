@@ -5,6 +5,8 @@ import PixelPinesProtection.scenes.*;
 import javax.sound.sampled.Clip;
 import javax.swing.JFrame;
 
+import Fatjon.Javamory.source.JavamoryFrame;
+
 /**
  * Hauptklasse des Spiels, die das Fenster und den Spielablauf steuert.
  * Sie erbt von JFrame und implementiert Runnable, um das Spiel in einem eigenen Thread laufen zu lassen.
@@ -31,7 +33,14 @@ public class Game extends JFrame implements Runnable {
     public Game() {
         initClasses();
 
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                Game.running = false;
+                Game.instance.dispose();
+                playing.getMusic().stop();
+            }
+        });
         setResizable(false);
         setTitle("Pixel Pines Defense!");
         add(gameScreen);
@@ -56,8 +65,15 @@ public class Game extends JFrame implements Runnable {
      * Startet den Spiel-Thread.
      */
     public void start() {
-        gameThread = new Thread(this) {};
+        running = true;
+        gameThread = new Thread(this);
         gameThread.start();
+        try {
+            gameThread.join();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -80,13 +96,17 @@ public class Game extends JFrame implements Runnable {
                 break;
         }
     }
+    
+    public static Game instance;
 
     public static void main(String[] args) {
-        Game game = new Game();
-        game.gameScreen.initInputs();
-        game.start();
+        instance = new Game();
+        instance.gameScreen.initInputs();
+        instance.start();
     }
 
+    public static boolean running;
+    
     /**
      * Die Haupt-Loop des Spiels, die für das Rendern und Aktualisieren des Spiels verantwortlich ist.
      */
@@ -104,7 +124,7 @@ public class Game extends JFrame implements Runnable {
 
         long now;
 
-        while (true) {
+        while (running) {
             now = System.nanoTime();
 
             // Rendern

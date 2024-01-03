@@ -107,6 +107,12 @@ public class GameController implements Runnable {
     public void startGameThread() {
         setGameThread(new Thread(this)); // erstellt einen neuen Thread
         getGameThread().start(); // startet den Thread
+        try {
+            getGameThread().join();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } // startet den Thread
     }
 
     /**
@@ -171,6 +177,15 @@ public class GameController implements Runnable {
                 float dB = (float) (Math.log(volume) / Math.log(10.0) * 20.0);
                 gainControl.setValue(dB);
             }
+        }
+    }
+    
+    public void stopMusic() {
+        for (Clip clip : sfxClips.values()) {
+            clip.stop();
+        }
+        for (Clip clip : musicClips.values()) {
+            clip.stop();
         }
     }
 

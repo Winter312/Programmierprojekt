@@ -59,7 +59,8 @@ public class Menu extends GameScene implements SceneMethods {
         } else if (bHelp.getBounds().contains(x, y)) {
             SetGameState(HELP);
         } else if (bQuit.getBounds().contains(x, y)) {
-            System.exit(0);
+            Game.running = false;
+            Game.instance.dispose();
         }
     }
 

@@ -2,11 +2,13 @@ package ezgin.src.main.gamestates;
 
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 import ezgin.src.main.GameController;
+import ezgin.src.main.GamePanel;
 import ezgin.src.main.enums.GameState;
 import ezgin.src.main.ui.buttons.DefaultButton;
-
+import jan.game.source.Audio.AudioManager;
 
 import static ezgin.src.utils.Constants.GameConstants.MUSIC_MENU;
 import static ezgin.src.utils.Constants.ImageConstants.BI_MENU_BACKGROUND;
@@ -89,7 +91,11 @@ public class Menu {
                             GameState.setGameState(GameState.CREDITS);
                             break;
                         case "Exit_Menu":
-                            System.exit(0);
+                            try {
+                                GamePanel.getInstance().quit();
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
                             break;
                     }
                     button.playSound();
@@ -99,6 +105,7 @@ public class Menu {
             }
         }
     }
+   
 
 
     // GETTER UND SETTER

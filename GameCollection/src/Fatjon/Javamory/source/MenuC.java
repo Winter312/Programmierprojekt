@@ -2,6 +2,8 @@ package Fatjon.Javamory.source;
 
 
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.LineUnavailableException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -56,7 +58,15 @@ public class MenuC extends JComponent {
         // Hier fügen Sie nur die Schaltflächen hinzu
         addMenuButton("Start Game", new Color(0, 100, 0), this::startGame);
         addMenuButton("How To", new Color(0, 100, 0), this::howTo);
-        addMenuButton("Exit", new Color(0, 100, 0), e -> System.exit(0));
+        addMenuButton("Exit", new Color(0, 100, 0), e -> {
+            
+            JavamoryFrame.getInstanceOf().stopBackgroundMusic();
+
+            JavamoryFrame.getInstanceOf().dispose();
+
+            JavamoryFrame.running = false;
+
+        });
     }
 
     /**

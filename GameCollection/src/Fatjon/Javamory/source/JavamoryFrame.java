@@ -3,6 +3,9 @@ package Fatjon.Javamory.source;
 
 
 import javax.swing.*;
+
+import jan.game.source.Game_Controller.GAMESTATE;
+
 import java.net.URL;
 import javax.sound.sampled.*;
 import java.io.IOException;
@@ -30,7 +33,17 @@ public class JavamoryFrame extends JFrame {
     private void initializeFrame() {
         setTitle("JAVAMORY"); // Setzt den Fenstertitel
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Bestimmt das Verhalten beim Schließen
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // Bestimmt das Verhalten beim Schließen
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                    JavamoryFrame.getInstanceOf().stopBackgroundMusic();
+
+                    JavamoryFrame.getInstanceOf().dispose();
+
+                    JavamoryFrame.running = false;
+
+            }
+        });
 
         setResizable(false); // Verhindert, dass die Größe des Fensters geändert wird
 
@@ -75,6 +88,8 @@ public class JavamoryFrame extends JFrame {
         return JavamoryFrameHolder.INSTANCE;
     }
 
+    public static boolean running;
+    
     /**
      * Hauptmethode zum Starten der Anwendung.
      * Diese Methode initialisiert das Hauptfenster und macht es sichtbar.
@@ -82,6 +97,9 @@ public class JavamoryFrame extends JFrame {
      * @param args Argumente der Kommandozeile (nicht verwendet).
      */
     public static void main(String[] args) {
+        
+        running = true;
+        
         SwingUtilities.invokeLater(() -> {
             try {
                 JavamoryFrame frame = JavamoryFrame.getInstanceOf();
@@ -91,6 +109,20 @@ public class JavamoryFrame extends JFrame {
                 e.printStackTrace();
             }
         });
+         
+        while(running){
+            
+          
+                try {
+                    Thread.sleep(200);
+                    if (!running) {
+                        break;
+                    }
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            
+        }
     }
 
     /**
@@ -111,6 +143,8 @@ public class JavamoryFrame extends JFrame {
         });
     }
 
+    Clip clip;
+    
     /**
      * Spielt Hintergrundmusik ab.
      * Diese Methode versucht, eine Audiodatei zu laden und als Hintergrundmusik in einer Endlosschleife abzuspielen.
@@ -121,7 +155,7 @@ public class JavamoryFrame extends JFrame {
             URL musicURL = getClass().getResource("Bilder/Musik/Musik.wav");
             if (musicURL != null) {
                 AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicURL);
-                Clip clip = AudioSystem.getClip();
+                clip = AudioSystem.getClip();
                 clip.open(audioInput);
                 clip.loop(Clip.LOOP_CONTINUOUSLY); // Musik in Endlosschleife abspielen
                 clip.start();
@@ -138,5 +172,10 @@ public class JavamoryFrame extends JFrame {
             System.err.println("Audio Line ist nicht verfügbar");
             e.printStackTrace();
         }
+    }
+    
+    public void stopBackgroundMusic() {
+        // Versuch, die Hintergrundmusik abzuspielen
+        clip.stop();
     }
 }

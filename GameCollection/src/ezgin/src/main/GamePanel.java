@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Arrays;
 
 import javax.swing.JFrame;
@@ -38,6 +39,7 @@ import ezgin.src.main.ui.buttons.SuperButton;
 import ezgin.src.main.ui.buttons.Switch;
 import ezgin.src.main.ui.hud.LifePoints;
 import ezgin.src.utils.Load;
+import jan.game.source.Game_Controller;
 
 import static ezgin.src.main.enums.GameState.*;
 import static ezgin.src.main.enums.Level.*;
@@ -68,6 +70,8 @@ public class GamePanel extends JPanel {
     private int frames; // Anzahl der Frames pro Sekunde
     private BufferedImage[] heart; // Bilder für die Herzen
 
+    
+    public static JFrame frame;
     private GamePanel() {
         this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT)); // setzt die Größe des GamePanels
         this.setDoubleBuffered(true); // aktiviert DoubleBuffering (verhindert Flackern)
@@ -78,8 +82,18 @@ public class GamePanel extends JPanel {
         this.setFocusTraversalKeysEnabled(false); // deaktiviert die FocusTraversalKeys
         this.setFont(Load.getFont()); // lädt die Schriftart
 
-        JFrame frame = new JFrame(); // erstellt ein neues JFrame
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame = new JFrame(); // erstellt ein neues JFrame
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                try {
+                    quit();
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
+        });
         frame.setResizable(false); // die Größe des JFrames ist nicht veränderbar
         frame.setTitle(getTitle()); // Titel des JFrames
         frame.add(this); // fügt dem JFrame das GamePanel hinzu, ähnlich wie ein Bild, dass in einen
@@ -96,6 +110,15 @@ public class GamePanel extends JPanel {
         setGameOver(GameOver.getInstance());
         setWin(Win.getInstance());
         setHeart(Load.getUiImages("heart.png"));
+    }
+    
+    public void quit() throws IOException {
+        
+        
+        GameController.getInstance().setGameThread(null);
+        GameController.getInstance().stopMusic();
+        GamePanel.frame.dispose();
+        GamePanel.setInstance(null);
     }
 
     /**
