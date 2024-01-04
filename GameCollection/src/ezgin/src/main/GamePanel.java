@@ -39,7 +39,6 @@ import ezgin.src.main.ui.buttons.SuperButton;
 import ezgin.src.main.ui.buttons.Switch;
 import ezgin.src.main.ui.hud.LifePoints;
 import ezgin.src.utils.Load;
-import jan.game.source.Game_Controller;
 
 import static ezgin.src.main.enums.GameState.*;
 import static ezgin.src.main.enums.Level.*;
@@ -348,8 +347,7 @@ public class GamePanel extends JPanel {
         }
 
         // zeichnet das HUD
-        if (getCurrentState() != GAME_OVER && getCurrentState() != WIN
-                && EntityHandler.getInstance().getPlayer().isAlive()) {
+        if (getCurrentState() != GAME_OVER && getCurrentState() != WIN && getCurrentState() != CREDITS && EntityHandler.getInstance().getPlayer().isAlive()) {
             // zeichnet die Lebenspunkte der lebenden Entities
             for (SuperLivingEntity superLivingEntity : getInGame().getEntityHandler().getSuperLivingEntities()) {
                 LifePoints lifePoints = superLivingEntity.getLifePoints();

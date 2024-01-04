@@ -22,7 +22,6 @@ public class MainPanel extends JPanel {
 
     Thread newThread;
 
-    
     /**
      * Create the panel.
      */

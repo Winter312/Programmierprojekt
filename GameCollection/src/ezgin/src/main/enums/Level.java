@@ -16,8 +16,8 @@ public enum Level {
     LEVEL_ZERO("Das Erwachen (Tutorial)", new int[3], new int[1], new int[1], Load.getLevelText()[0], BI_LEVEL_ZERO),
     LEVEL_ONE("Das Vermächtnis von Eternavia", new int[3], new int[2], new int[5], Load.getLevelText()[1], BI_LEVEL_ONE),
     LEVEL_TWO("Das Zeitalter der Schatten", new int[3], new int[3], new int[10], Load.getLevelText()[2], BI_LEVEL_TWO),
-    LEVEL_THREE("Die Hoffnung der Celestari", new int[3], new int[2], new int[10], Load.getLevelText()[3], BI_LEVEL_THREE),
-    LEVEL_CASTLE("Die Festung der KI", new int[0], new int[0], new int[30], Load.getLevelText()[3], BI_LEVEL_CASTLE);
+    LEVEL_THREE("Die Hoffnung der Celestari", new int[3], new int[2], new int[15], Load.getLevelText()[3], BI_LEVEL_THREE),
+    LEVEL_CASTLE("Die Festung der KI", new int[0], new int[0], new int[30], null, BI_LEVEL_CASTLE);
 
     private static Level currentLevel = LEVEL_ZERO;
     private static Level previousLevel = LEVEL_ZERO;

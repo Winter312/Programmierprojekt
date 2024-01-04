@@ -60,19 +60,13 @@ public class Constants {
          * @return Anzahl der Spalten
          */
         public static int getMaxWorldCol() {
-            switch (getCurrentLevel()) {
-                case LEVEL_ZERO:
-                    return 9;
-                case LEVEL_ONE:
-                    return 50;
-                case LEVEL_TWO:
-                    return 80;
-                case LEVEL_THREE:
-                    return 60;
-                case LEVEL_CASTLE:
-                    return 40;
-            }
-            return 0;
+            return switch (getCurrentLevel()) {
+                case LEVEL_ZERO -> 9;
+                case LEVEL_ONE -> 50;
+                case LEVEL_TWO -> 80;
+                case LEVEL_THREE -> 60;
+                case LEVEL_CASTLE -> 40;
+            };
         }
 
         /**
@@ -81,18 +75,12 @@ public class Constants {
          * @return Anzahl der Reihen
          */
         public static int getMaxWorldRow() {
-            switch (getCurrentLevel()) {
-                case LEVEL_ZERO:
-                    return 30;
-                case LEVEL_ONE:
-                    return 25;
-                case LEVEL_TWO:
-                    return 32;
-                case LEVEL_THREE:
-                case LEVEL_CASTLE:
-                    return 40;
-            }
-            return 0;
+            return switch (getCurrentLevel()) {
+                case LEVEL_ZERO -> 30;
+                case LEVEL_ONE -> 25;
+                case LEVEL_TWO -> 32;
+                case LEVEL_THREE, LEVEL_CASTLE -> 40;
+            };
         }
 
         // Spieleinstellungen
@@ -120,58 +108,36 @@ public class Constants {
             switch (name) {
                 case PA_CHECKPOINT:
                 case PA_STELA:
-                    switch (getCurrentLevel()) {
-                        case LEVEL_ZERO:
-                        case LEVEL_THREE:
-                        case LEVEL_ONE:
-                        case LEVEL_TWO:
-                            return 3;
-                        case LEVEL_CASTLE:
-                        default:
-                            return 0;
-                    }
+                    return switch (getCurrentLevel()) {
+                        case LEVEL_ZERO, LEVEL_THREE, LEVEL_ONE, LEVEL_TWO -> 3;
+                        default -> 0;
+                    };
                 case PA_CHEST:
-                    switch (getCurrentLevel()) {
-                        case LEVEL_ZERO:
-                            return 1;
-                        case LEVEL_ONE:
-                        case LEVEL_THREE:
-                            return 2;
-                        case LEVEL_TWO:
-                            return 3;
-                        case LEVEL_CASTLE:
-                            return 0;
-                    }
+                    return switch (getCurrentLevel()) {
+                        case LEVEL_ZERO -> 1;
+                        case LEVEL_ONE, LEVEL_THREE -> 2;
+                        case LEVEL_TWO -> 3;
+                        case LEVEL_CASTLE -> 0;
+                    };
                 case PA_ENEMY:
-                    switch (getCurrentLevel()) {
-                        case LEVEL_ZERO:
-                            return 1;
-                        case LEVEL_ONE:
-                        case LEVEL_THREE:
-                            return 5;
-                        case LEVEL_TWO:
-                            return 10;
-                        case LEVEL_CASTLE:
-                            return 30;
-                    }
+                    return switch (getCurrentLevel()) {
+                        case LEVEL_ZERO -> 1;
+                        case LEVEL_ONE -> 5;
+                        case LEVEL_TWO -> 10;
+                        case LEVEL_THREE -> 15;
+                        case LEVEL_CASTLE -> 30;
+                    };
                 case PA_DOOR:
-                    switch (getCurrentLevel()) {
-                        case LEVEL_THREE:
-                            return 2;
-                        case LEVEL_CASTLE:
-                            return 1;
-                        default:
-                            return 0;
-                    }
+                    return switch (getCurrentLevel()) {
+                        case LEVEL_THREE -> 2;
+                        case LEVEL_CASTLE -> 1;
+                        default -> 0;
+                    };
                 case PA_LUMINA:
-                    switch (getCurrentLevel()) {
-                        case LEVEL_ONE:
-                        case LEVEL_TWO:
-                        case LEVEL_THREE:
-                            return 1;
-                        default:
-                            return 0;
-                    }
+                    return switch (getCurrentLevel()) {
+                        case LEVEL_ONE, LEVEL_TWO, LEVEL_THREE -> 1;
+                        default -> 0;
+                    };
                 default:
                     return 0;
             }
@@ -183,18 +149,13 @@ public class Constants {
          * @return Spawn-Position des Spielers
          */
         public static float[] getPlayerSpawn() {
-            switch (getCurrentLevel()) {
-                case LEVEL_ZERO:
-                    return new float[]{1.5f * TILE_SIZE, 27.5f * TILE_SIZE};
-                case LEVEL_ONE:
-                    return new float[]{1.5f * TILE_SIZE, 22.5f * TILE_SIZE};
-                case LEVEL_TWO:
-                    return new float[]{39.5f * TILE_SIZE, 28.5f * TILE_SIZE};
-                case LEVEL_THREE:
-                    return new float[]{58f * TILE_SIZE, 38f * TILE_SIZE};
-                default:
-                    return new float[]{19.5f * TILE_SIZE, 38.5f * TILE_SIZE};
-            }
+            return switch (getCurrentLevel()) {
+                case LEVEL_ZERO -> new float[]{1.5f * TILE_SIZE, 27.5f * TILE_SIZE};
+                case LEVEL_ONE -> new float[]{1.5f * TILE_SIZE, 22.5f * TILE_SIZE};
+                case LEVEL_TWO -> new float[]{39.5f * TILE_SIZE, 28.5f * TILE_SIZE};
+                case LEVEL_THREE -> new float[]{58f * TILE_SIZE, 38f * TILE_SIZE};
+                default -> new float[]{19.5f * TILE_SIZE, 38.5f * TILE_SIZE};
+            };
         }
 
         /**
@@ -203,17 +164,18 @@ public class Constants {
          * @return Spawn-Positionen der Gegner
          */
         public static float[][] getEnemySpawn() {
-            switch (getCurrentLevel()) {
-                case LEVEL_ZERO:
-                    return new float[][]{{4f * TILE_SIZE, 6f * TILE_SIZE}};
-                case LEVEL_ONE:
-                case LEVEL_THREE:
-                    return new float[][]{{15 * TILE_SIZE, 13 * TILE_SIZE}, {33 * TILE_SIZE, 13 * TILE_SIZE}, {36 * TILE_SIZE, 15 * TILE_SIZE}, {43 * TILE_SIZE, 14 * TILE_SIZE}, {47 * TILE_SIZE, 14 * TILE_SIZE}};
-                case LEVEL_TWO:
-                    return new float[][]{{70 * TILE_SIZE, 13 * TILE_SIZE}, {70 * TILE_SIZE, 25 * TILE_SIZE}, {70 * TILE_SIZE, 25 * TILE_SIZE}, {70 * TILE_SIZE, 25 * TILE_SIZE}, {70 * TILE_SIZE, 25 * TILE_SIZE}, {70 * TILE_SIZE, 25 * TILE_SIZE}, {70 * TILE_SIZE, 25 * TILE_SIZE}, {70 * TILE_SIZE, 25 * TILE_SIZE}, {70 * TILE_SIZE, 25 * TILE_SIZE}, {70 * TILE_SIZE, 25 * TILE_SIZE}};
-                default:
-                    return new float[][]{{9 * TILE_SIZE, 31 * TILE_SIZE}, {14 * TILE_SIZE, 31 * TILE_SIZE}, {19 * TILE_SIZE, 31 * TILE_SIZE}, {25 * TILE_SIZE, 31 * TILE_SIZE}, {30 * TILE_SIZE, 31 * TILE_SIZE}, {26 * TILE_SIZE, 22 * TILE_SIZE}, {27 * TILE_SIZE, 22 * TILE_SIZE}, {16 * TILE_SIZE, 22 * TILE_SIZE}, {19 * TILE_SIZE, 22 * TILE_SIZE}, {4 * TILE_SIZE, 18 * TILE_SIZE}, {6 * TILE_SIZE, 21 * TILE_SIZE}, {8 * TILE_SIZE, 18 * TILE_SIZE}, {33 * TILE_SIZE, 13 * TILE_SIZE}, {35 * TILE_SIZE, 14 * TILE_SIZE}, {18 * TILE_SIZE, 7 * TILE_SIZE}, {22 * TILE_SIZE, 5 * TILE_SIZE}, {23 * TILE_SIZE, 6 * TILE_SIZE}, {26 * TILE_SIZE, 6 * TILE_SIZE}, {22 * TILE_SIZE, 8 * TILE_SIZE}, {19 * TILE_SIZE, 8 * TILE_SIZE}, {23 * TILE_SIZE, 4 * TILE_SIZE}, {20 * TILE_SIZE, 9 * TILE_SIZE}, {26 * TILE_SIZE, 4 * TILE_SIZE}, {8 * TILE_SIZE, 33 * TILE_SIZE}, {16 * TILE_SIZE, 30 * TILE_SIZE}, {28 * TILE_SIZE, 34 * TILE_SIZE}, {31 * TILE_SIZE, 28 * TILE_SIZE}, {21 * TILE_SIZE, 28 * TILE_SIZE}, {14 * TILE_SIZE, 28 * TILE_SIZE}, {12 * TILE_SIZE, 17 * TILE_SIZE}};
-            }
+            return switch (getCurrentLevel()) {
+                case LEVEL_ZERO -> new float[][]{{4f * TILE_SIZE, 6f * TILE_SIZE}};
+                case LEVEL_ONE ->
+                        new float[][]{{15 * TILE_SIZE, 13 * TILE_SIZE}, {33 * TILE_SIZE, 13 * TILE_SIZE}, {36 * TILE_SIZE, 15 * TILE_SIZE}, {43 * TILE_SIZE, 14 * TILE_SIZE}, {47 * TILE_SIZE, 14 * TILE_SIZE}};
+                case LEVEL_TWO ->
+                        new float[][]{{6 * TILE_SIZE, 21 * TILE_SIZE}, {70 * TILE_SIZE, 25 * TILE_SIZE}, {7 * TILE_SIZE, 11 * TILE_SIZE}, {72 * TILE_SIZE, 16 * TILE_SIZE}, {19 * TILE_SIZE, 18 * TILE_SIZE}, {60 * TILE_SIZE, 17 * TILE_SIZE}, {71 * TILE_SIZE, 4 * TILE_SIZE}, {8 * TILE_SIZE, 5 * TILE_SIZE}, {49 * TILE_SIZE, 7 * TILE_SIZE}, {30 * TILE_SIZE, 7 * TILE_SIZE}};
+                case LEVEL_THREE ->
+                        new float[][]{{50 * TILE_SIZE, 16 * TILE_SIZE}, {49 * TILE_SIZE, 24 * TILE_SIZE}, {45 * TILE_SIZE, 17 * TILE_SIZE}, {41 * TILE_SIZE, 10 * TILE_SIZE}, {34 * TILE_SIZE, 12 * TILE_SIZE}, {35 * TILE_SIZE, 17 * TILE_SIZE}, {24 * TILE_SIZE, 22 * TILE_SIZE}, {22 * TILE_SIZE, 15 * TILE_SIZE}, {22.7f * TILE_SIZE, 5 * TILE_SIZE}, {25 * TILE_SIZE, 18 * TILE_SIZE}, {17 * TILE_SIZE, 35 * TILE_SIZE}, {9 * TILE_SIZE, 31 * TILE_SIZE}, {8 * TILE_SIZE, 28 * TILE_SIZE}, {15 * TILE_SIZE, 21 * TILE_SIZE}, {21 * TILE_SIZE, 35 * TILE_SIZE}};
+                default ->
+                        new float[][]{{9 * TILE_SIZE, 31 * TILE_SIZE}, {14 * TILE_SIZE, 31 * TILE_SIZE}, {19 * TILE_SIZE, 31 * TILE_SIZE}, {25 * TILE_SIZE, 31 * TILE_SIZE}, {30 * TILE_SIZE, 31 * TILE_SIZE}, {26 * TILE_SIZE, 22 * TILE_SIZE}, {27 * TILE_SIZE, 22 * TILE_SIZE}, {16 * TILE_SIZE, 22 * TILE_SIZE}, {19 * TILE_SIZE, 22 * TILE_SIZE}, {4 * TILE_SIZE, 18 * TILE_SIZE}, {6 * TILE_SIZE, 21 * TILE_SIZE}, {8 * TILE_SIZE, 18 * TILE_SIZE}, {33 * TILE_SIZE, 13 * TILE_SIZE}, {35 * TILE_SIZE, 14 * TILE_SIZE}, {18 * TILE_SIZE, 7 * TILE_SIZE},
+                                {22 * TILE_SIZE, 5 * TILE_SIZE}, {23 * TILE_SIZE, 6 * TILE_SIZE}, {26 * TILE_SIZE, 6 * TILE_SIZE}, {22 * TILE_SIZE, 8 * TILE_SIZE}, {19 * TILE_SIZE, 8 * TILE_SIZE}, {23 * TILE_SIZE, 4 * TILE_SIZE}, {20 * TILE_SIZE, 9 * TILE_SIZE}, {26 * TILE_SIZE, 4 * TILE_SIZE}, {8 * TILE_SIZE, 33 * TILE_SIZE}, {16 * TILE_SIZE, 30 * TILE_SIZE}, {28 * TILE_SIZE, 34 * TILE_SIZE}, {31 * TILE_SIZE, 28 * TILE_SIZE}, {21 * TILE_SIZE, 28 * TILE_SIZE}, {14 * TILE_SIZE, 28 * TILE_SIZE}, {12 * TILE_SIZE, 17 * TILE_SIZE}};
+            };
         }
 
         /**
@@ -225,46 +187,30 @@ public class Constants {
         public static float[] getCheckPointSpawn(int checkPoint) {
             switch (getCurrentLevel()) {
                 case LEVEL_ZERO:
-                    switch (checkPoint) {
-                        case 0:
-                        default:
-                            return new float[]{TILE_SIZE, 20 * TILE_SIZE};
-                        case 1:
-                            return new float[]{TILE_SIZE, TILE_SIZE};
-                        case 2:
-                            return new float[]{5 * TILE_SIZE, TILE_SIZE};
-                    }
+                    return switch (checkPoint) {
+                        default -> new float[]{TILE_SIZE, 20 * TILE_SIZE};
+                        case 1 -> new float[]{TILE_SIZE, TILE_SIZE};
+                        case 2 -> new float[]{5 * TILE_SIZE, TILE_SIZE};
+                    };
                 case LEVEL_ONE:
                 default:
-                    switch (checkPoint) {
-                        case 0:
-                        default:
-                            return new float[]{5 * TILE_SIZE, 7 * TILE_SIZE};
-                        case 1:
-                            return new float[]{18 * TILE_SIZE, 10 * TILE_SIZE};
-                        case 2:
-                            return new float[]{44 * TILE_SIZE, 9 * TILE_SIZE};
-                    }
+                    return switch (checkPoint) {
+                        default -> new float[]{5 * TILE_SIZE, 7 * TILE_SIZE};
+                        case 1 -> new float[]{18 * TILE_SIZE, 10 * TILE_SIZE};
+                        case 2 -> new float[]{44 * TILE_SIZE, 9 * TILE_SIZE};
+                    };
                 case LEVEL_TWO:
-                    switch (checkPoint) {
-                        case 0:
-                        default:
-                            return new float[]{18 * TILE_SIZE, 9 * TILE_SIZE};
-                        case 1:
-                            return new float[]{39 * TILE_SIZE, TILE_SIZE};
-                        case 2:
-                            return new float[]{75 * TILE_SIZE, 16 * TILE_SIZE};
-                    }
+                    return switch (checkPoint) {
+                        default -> new float[]{18 * TILE_SIZE, 9 * TILE_SIZE};
+                        case 1 -> new float[]{39 * TILE_SIZE, TILE_SIZE};
+                        case 2 -> new float[]{75 * TILE_SIZE, 16 * TILE_SIZE};
+                    };
                 case LEVEL_THREE:
-                    switch (checkPoint) {
-                        case 0:
-                        default:
-                            return new float[]{53 * TILE_SIZE, 24 * TILE_SIZE};
-                        case 1:
-                            return new float[]{TILE_SIZE, 31.25f * TILE_SIZE};
-                        case 2:
-                            return new float[]{32 * TILE_SIZE, 2.25f * TILE_SIZE};
-                    }
+                    return switch (checkPoint) {
+                        default -> new float[]{53 * TILE_SIZE, 24 * TILE_SIZE};
+                        case 1 -> new float[]{TILE_SIZE, 31.25f * TILE_SIZE};
+                        case 2 -> new float[]{32 * TILE_SIZE, 2.25f * TILE_SIZE};
+                    };
             }
         }
 
@@ -275,37 +221,22 @@ public class Constants {
          * @return Spawn-Positionen der Truhen
          */
         public static float[] getChestSpawn(int chest) {
-            switch (getCurrentLevel()) {
-                case LEVEL_ZERO:
-                    return new float[]{7 * TILE_SIZE, 27 * TILE_SIZE};
-                case LEVEL_ONE:
-                default:
-                    switch (chest) {
-                        case 0:
-                        default:
-                            return new float[]{TILE_SIZE / 4f, 15 * TILE_SIZE};
-                        case 1:
-                            return new float[]{27 * TILE_SIZE, 0};
-                    }
-                case LEVEL_TWO:
-                    switch (chest) {
-                        case 0:
-                        default:
-                            return new float[]{60 * TILE_SIZE, 9 * TILE_SIZE};
-                        case 1:
-                            return new float[]{11.8f * TILE_SIZE, 8 * TILE_SIZE};
-                        case 2:
-                            return new float[]{TILE_SIZE, 8 * TILE_SIZE};
-                    }
-                case LEVEL_THREE:
-                    switch (chest) {
-                        case 0:
-                        default:
-                            return new float[]{5.5f * TILE_SIZE, 2 * TILE_SIZE};
-                        case 1:
-                            return new float[]{56 * TILE_SIZE, 2 * TILE_SIZE};
-                    }
-            }
+            return switch (getCurrentLevel()) {
+                case LEVEL_ZERO -> new float[]{7 * TILE_SIZE, 27 * TILE_SIZE};
+                default -> switch (chest) {
+                    default -> new float[]{TILE_SIZE / 4f, 15 * TILE_SIZE};
+                    case 1 -> new float[]{27 * TILE_SIZE, 0};
+                };
+                case LEVEL_TWO -> switch (chest) {
+                    default -> new float[]{60 * TILE_SIZE, 9 * TILE_SIZE};
+                    case 1 -> new float[]{11.8f * TILE_SIZE, 8 * TILE_SIZE};
+                    case 2 -> new float[]{TILE_SIZE, 8 * TILE_SIZE};
+                };
+                case LEVEL_THREE -> switch (chest) {
+                    default -> new float[]{5.5f * TILE_SIZE, 2 * TILE_SIZE};
+                    case 1 -> new float[]{56 * TILE_SIZE, 2 * TILE_SIZE};
+                };
+            };
         }
 
         /**
@@ -315,49 +246,28 @@ public class Constants {
          * @return Spawn-Positionen der Stelen
          */
         public static float[] getStelaSpawn(int stela) {
-            switch (getCurrentLevel()) {
-                case LEVEL_ZERO:
-                    switch (stela) {
-                        case 0:
-                        default:
-                            return new float[]{4 * TILE_SIZE, 18 * TILE_SIZE};
-                        case 1:
-                            return new float[]{0, 0};
-                        case 2:
-                            return new float[]{8 * TILE_SIZE, 0};
-                    }
-                case LEVEL_ONE:
-                default:
-                    switch (stela) {
-                        case 0:
-                        default:
-                            return new float[]{6 * TILE_SIZE, 4 * TILE_SIZE};
-                        case 1:
-                            return new float[]{17 * TILE_SIZE, 9 * TILE_SIZE};
-                        case 2:
-                            return new float[]{43 * TILE_SIZE, 8 * TILE_SIZE};
-                    }
-                case LEVEL_TWO:
-                    switch (stela) {
-                        case 0:
-                        default:
-                            return new float[]{19 * TILE_SIZE, 10 * TILE_SIZE};
-                        case 1:
-                            return new float[]{38 * TILE_SIZE, 0};
-                        case 2:
-                            return new float[]{78 * TILE_SIZE, 15 * TILE_SIZE};
-                    }
-                case LEVEL_THREE:
-                    switch (stela) {
-                        case 0:
-                        default:
-                            return new float[]{56 * TILE_SIZE, 22 * TILE_SIZE};
-                        case 1:
-                            return new float[]{4 * TILE_SIZE, 28 * TILE_SIZE};
-                        case 2:
-                            return new float[]{29 * TILE_SIZE, TILE_SIZE};
-                    }
-            }
+            return switch (getCurrentLevel()) {
+                case LEVEL_ZERO -> switch (stela) {
+                    default -> new float[]{4 * TILE_SIZE, 18 * TILE_SIZE};
+                    case 1 -> new float[]{0, 0};
+                    case 2 -> new float[]{8 * TILE_SIZE, 0};
+                };
+                default -> switch (stela) {
+                    default -> new float[]{6 * TILE_SIZE, 4 * TILE_SIZE};
+                    case 1 -> new float[]{17 * TILE_SIZE, 9 * TILE_SIZE};
+                    case 2 -> new float[]{43 * TILE_SIZE, 8 * TILE_SIZE};
+                };
+                case LEVEL_TWO -> switch (stela) {
+                    default -> new float[]{19 * TILE_SIZE, 10 * TILE_SIZE};
+                    case 1 -> new float[]{38 * TILE_SIZE, 0};
+                    case 2 -> new float[]{78 * TILE_SIZE, 15 * TILE_SIZE};
+                };
+                case LEVEL_THREE -> switch (stela) {
+                    default -> new float[]{56 * TILE_SIZE, 22 * TILE_SIZE};
+                    case 1 -> new float[]{4 * TILE_SIZE, 28 * TILE_SIZE};
+                    case 2 -> new float[]{29 * TILE_SIZE, TILE_SIZE};
+                };
+            };
         }
 
         /**
@@ -368,18 +278,18 @@ public class Constants {
          */
         public static float[] getDoorSpawn(int door) {
             switch (getCurrentLevel()) {
-                case LEVEL_THREE:
-                    switch (door) {
-                        case 0:
-                        default:
-                            return new float[]{50f * TILE_SIZE, TILE_SIZE};
-                        case 1:
-                            return new float[]{4.5f * TILE_SIZE, 20 * TILE_SIZE};
+                case LEVEL_THREE -> {
+                    if (door == 1) {
+                        return new float[]{4.5f * TILE_SIZE, 20 * TILE_SIZE};
                     }
-                case LEVEL_CASTLE:
+                    return new float[]{50f * TILE_SIZE, TILE_SIZE};
+                }
+                case LEVEL_CASTLE -> {
                     return new float[]{4.5f * TILE_SIZE, 2 * TILE_SIZE};
-                default:
+                }
+                default -> {
                     return new float[]{0, 0};
+                }
             }
         }
 
@@ -391,13 +301,10 @@ public class Constants {
          */
         public static int[] getDoorPos(int door) {
             if (getCurrentLevel() == LEVEL_THREE) {
-                switch (door) {
-                    case 0:
-                    default:
-                        return new int[]{1632, 95};
-                    case 1:
-                        return new int[]{176, 698};
+                if (door == 1) {
+                    return new int[]{176, 698};
                 }
+                return new int[]{1632, 95};
             }
             return new int[]{176, 127};
         }
@@ -408,14 +315,11 @@ public class Constants {
          * @return Spawn-Positionen der Lumina-Statue
          */
         public static float[] getLuminaSpawn() {
-            switch (getCurrentLevel()) {
-                case LEVEL_ONE:
-                    return new float[]{19 * TILE_SIZE, 17 * TILE_SIZE};
-                case LEVEL_TWO:
-                    return new float[]{27 * TILE_SIZE, 12 * TILE_SIZE};
-                default:
-                    return new float[]{32 * TILE_SIZE, 32 * TILE_SIZE};
-            }
+            return switch (getCurrentLevel()) {
+                case LEVEL_ONE -> new float[]{19 * TILE_SIZE, 17 * TILE_SIZE};
+                case LEVEL_TWO -> new float[]{27 * TILE_SIZE, 12 * TILE_SIZE};
+                default -> new float[]{32 * TILE_SIZE, 32 * TILE_SIZE};
+            };
         }
     }
 
@@ -423,7 +327,6 @@ public class Constants {
      * Klasse für die Sprites der Entities
      */
     public static class EntitySpriteConstants {
-
         public static final int RUN_UP = 0;
         public static final int RUN_LEFT = 1;
         public static final int RUN_DOWN = 2;
@@ -455,21 +358,11 @@ public class Constants {
          * @return Anzahl der Sprites
          */
         public static int getPlayerSpriteCount(int spriteRow) {
-            switch (spriteRow) {
-                case RUN_UP:
-                case RUN_LEFT:
-                case RUN_DOWN:
-                case RUN_RIGHT:
-                    return 9;
-                case ATTACK_UP:
-                case ATTACK_LEFT:
-                case ATTACK_DOWN:
-                case ATTACK_RIGHT:
-                case DEATH:
-                    return 6;
-                default:
-                    return 0;
-            }
+            return switch (spriteRow) {
+                case RUN_UP, RUN_LEFT, RUN_DOWN, RUN_RIGHT -> 9;
+                case ATTACK_UP, ATTACK_LEFT, ATTACK_DOWN, ATTACK_RIGHT, DEATH -> 6;
+                default -> 0;
+            };
         }
 
         /**
@@ -479,22 +372,12 @@ public class Constants {
          * @return Anzahl der Sprites
          */
         private static int getEnemySpriteCount(int spriteRow) {
-            switch (spriteRow) {
-                case RUN_UP:
-                case RUN_LEFT:
-                case RUN_DOWN:
-                case RUN_RIGHT:
-                    return 9;
-                case ATTACK_UP:
-                case ATTACK_LEFT:
-                case ATTACK_DOWN:
-                case ATTACK_RIGHT:
-                    return 8;
-                case DEATH:
-                    return 6;
-                default:
-                    return 0;
-            }
+            return switch (spriteRow) {
+                case RUN_UP, RUN_LEFT, RUN_DOWN, RUN_RIGHT -> 9;
+                case ATTACK_UP, ATTACK_LEFT, ATTACK_DOWN, ATTACK_RIGHT -> 8;
+                case DEATH -> 6;
+                default -> 0;
+            };
         }
 
         /**
@@ -507,15 +390,11 @@ public class Constants {
             if (name.contains("player") || name.equals(PA_ENEMY)) {
                 return 9;
             }
-            switch (name) {
-                case PA_CHECKPOINT:
-                case PA_STELA:
-                    return 5;
-                case PA_LUMINA:
-                    return 4;
-                default:
-                    return 2;
-            }
+            return switch (name) {
+                case PA_CHECKPOINT, PA_STELA -> 5;
+                case PA_LUMINA -> 4;
+                default -> 2;
+            };
         }
 
         /**
@@ -543,19 +422,12 @@ public class Constants {
             if (name.contains("player") || name.equals(PA_ENEMY)) {
                 return 64 * SCALE;
             }
-            switch (name) {
-                case PA_CHECKPOINT:
-                    return 4 * TILE_SIZE;
-                case PA_DOOR:
-                case PA_DOOR_2:
-                case PA_LUMINA:
-                    return 3 * TILE_SIZE;
-                case PA_STELA:
-                case PA_CHEST:
-                    return 2 * TILE_SIZE;
-                default:
-                    return TILE_SIZE;
-            }
+            return switch (name) {
+                case PA_CHECKPOINT -> 4 * TILE_SIZE;
+                case PA_DOOR, PA_DOOR_2, PA_LUMINA -> 3 * TILE_SIZE;
+                case PA_STELA, PA_CHEST -> 2 * TILE_SIZE;
+                default -> TILE_SIZE;
+            };
         }
 
         /**
@@ -568,18 +440,11 @@ public class Constants {
             if (name.contains("player") || name.equals(PA_ENEMY)) {
                 return 64 * SCALE;
             }
-            switch (name) {
-                case PA_CHECKPOINT:
-                case PA_STELA:
-                case PA_LUMINA:
-                    return 3 * TILE_SIZE;
-                case PA_CHEST:
-                case PA_DOOR:
-                case PA_DOOR_2:
-                    return 2 * TILE_SIZE;
-                default:
-                    return TILE_SIZE;
-            }
+            return switch (name) {
+                case PA_CHECKPOINT, PA_STELA, PA_LUMINA -> 3 * TILE_SIZE;
+                case PA_CHEST, PA_DOOR, PA_DOOR_2 -> 2 * TILE_SIZE;
+                default -> TILE_SIZE;
+            };
         }
 
         /**
@@ -589,16 +454,12 @@ public class Constants {
          * @return Sound-Clips der Entität
          */
         public static Clip[] getEntityClip(String name) {
-            switch (name) {
-                case PA_CHECKPOINT:
-                    return new Clip[]{Load.getAudioClip("checkpoint.wav")};
-                case PA_STELA:
-                    return new Clip[]{Load.getAudioClip("stela.wav")};
-                case PA_LUMINA:
-                    return new Clip[]{Load.getAudioClip("lumina.wav")};
-                default:
-                    return new Clip[]{Load.getAudioClip("chest1.wav"), Load.getAudioClip("chest2.wav")};
-            }
+            return switch (name) {
+                case PA_CHECKPOINT -> new Clip[]{Load.getAudioClip("checkpoint.wav")};
+                case PA_STELA -> new Clip[]{Load.getAudioClip("stela.wav")};
+                case PA_LUMINA -> new Clip[]{Load.getAudioClip("lumina.wav")};
+                default -> new Clip[]{Load.getAudioClip("chest1.wav"), Load.getAudioClip("chest2.wav")};
+            };
         }
     }
 
@@ -616,17 +477,12 @@ public class Constants {
          * @return Pfad des Bildes des Spielers
          */
         public static String getPlayerPath(int state) {
-            switch (state) {
-                case 0:
-                default:
-                    return "player_default.png";
-                case 1:
-                    return "player_dagger.png";
-                case 2:
-                    return "player_shield.png";
-                case 3:
-                    return "player_dagger_shield.png";
-            }
+            return switch (state) {
+                default -> "player_default.png";
+                case 1 -> "player_dagger.png";
+                case 2 -> "player_shield.png";
+                case 3 -> "player_dagger_shield.png";
+            };
         }
 
         public static final String PA_ENEMY = "enemy.png";
@@ -644,14 +500,11 @@ public class Constants {
          * @return Pfad des Bildes der Tür
          */
         public static String getDoor(int id) {
-            switch (id) {
-                case 0:
-                    return PA_DOOR_2;
-                case 1:
-                    return PA_DOOR;
-                default:
-                    return "";
-            }
+            return switch (id) {
+                case 0 -> PA_DOOR_2;
+                case 1 -> PA_DOOR;
+                default -> "";
+            };
         }
 
         // Bilder der Welt (Layer 1 und 2 und LevelData)
@@ -748,13 +601,10 @@ public class Constants {
          * @return Y-Position des Textes
          */
         public static int getTutorialTextY() {
-            switch (getCurrentTutorialState()) {
-                case FIRST_PART:
-                case SECOND_PART:
-                case FIRST_STELA:
-                    return (int) (MENU_TILE_SIZE * 2.5f);
-            }
-            return TUTORIAL_FIELD_Y + TUTORIAL_FIELD_HEIGHT + MENU_TILE_SIZE / 2;
+            return switch (getCurrentTutorialState()) {
+                case FIRST_PART, SECOND_PART, FIRST_STELA -> (int) (MENU_TILE_SIZE * 2.5f);
+                default -> TUTORIAL_FIELD_Y + TUTORIAL_FIELD_HEIGHT + MENU_TILE_SIZE / 2;
+            };
         }
 
         /**
@@ -763,18 +613,13 @@ public class Constants {
          * @return X-Position des Textes
          */
         public static int getTutorialX() {
-            switch (getCurrentTutorialState()) {
-                case FIRST_CHEST:
-                case FIRST_HIT:
-                case FIRST_ENEMY:
-                case FIRST_LEVEL_END:
-                    return MENU_TILE_SIZE / 2;
-                case FIRST_STELA:
-                    return (int) EntityHandler.getInstance().getStelas()[0].getScreenX() + EntityHandler.getInstance().getStelas()[0].getWidth() / 2;
-                case FIRST_ENEMY_KILL:
-                    return SCREEN_WIDTH / 2 - TUTORIAL_WIDTH / 2;
-            }
-            return SCREEN_WIDTH - (int) (MENU_TILE_SIZE * 11.5f) - MENU_TILE_SIZE / 2;
+            return switch (getCurrentTutorialState()) {
+                case FIRST_CHEST, FIRST_HIT, FIRST_ENEMY, FIRST_LEVEL_END -> MENU_TILE_SIZE / 2;
+                case FIRST_STELA ->
+                        (int) EntityHandler.getInstance().getStelas()[0].getScreenX() + EntityHandler.getInstance().getStelas()[0].getWidth() / 2;
+                case FIRST_ENEMY_KILL -> SCREEN_WIDTH / 2 - TUTORIAL_WIDTH / 2;
+                default -> SCREEN_WIDTH - (int) (MENU_TILE_SIZE * 11.5f) - MENU_TILE_SIZE / 2;
+            };
         }
 
         /**
@@ -812,14 +657,12 @@ public class Constants {
          * @return Text für die Lumina-Statue
          */
         public static String[] getLuminaText() {
-            switch (getCurrentLevel()) {
-                case LEVEL_ONE:
-                    return new String[]{"Statue der Lumina", "Schutzgöttin der Celestari"};
-                case LEVEL_TWO:
-                    return new String[]{"Lumina in den Schatten", "Stilles Mahnmal einer Welt unter der Herrschaft der KI"};
-                default:
-                    return new String[]{"Heilige Statue von Lumina", "Symbol der Hoffnung und Erleuchtung"};
-            }
+            return switch (getCurrentLevel()) {
+                case LEVEL_ONE -> new String[]{"Statue der Lumina", "Schutzgöttin der Celestari"};
+                case LEVEL_TWO ->
+                        new String[]{"Lumina in den Schatten", "Stilles Mahnmal einer Welt unter der Herrschaft der KI"};
+                default -> new String[]{"Heilige Statue von Lumina", "Symbol der Hoffnung und Erleuchtung"};
+            };
         }
 
         /**
@@ -840,17 +683,12 @@ public class Constants {
          * @return Text für den aktuellen Tutorial-State
          */
         public static String getTutorialText() {
-            switch (getCurrentTutorialState()) {
-                case FIRST_CHEST:
-                    return "Lerne deine Items näher kennen";
-                case FIRST_HIT:
-                case FIRST_ENEMY:
-                    return "Führt einen Angriff aus";
-                case FIRST_CHECKPOINT:
-                    return "Ansicht über CheckPoints";
-                default:
-                    return "Sprung ins nächste Level";
-            }
+            return switch (getCurrentTutorialState()) {
+                case FIRST_CHEST -> "Lerne deine Items näher kennen";
+                case FIRST_HIT, FIRST_ENEMY -> "Führt einen Angriff aus";
+                case FIRST_CHECKPOINT -> "Ansicht über CheckPoints";
+                default -> "Sprung ins nächste Level";
+            };
         }
     }
 }
