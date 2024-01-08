@@ -3,7 +3,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import CodeInvaders_Game.States.StateMachine;
-import PixelPinesProtection.main.Game;
 
 
 public class Display extends Canvas implements Runnable {

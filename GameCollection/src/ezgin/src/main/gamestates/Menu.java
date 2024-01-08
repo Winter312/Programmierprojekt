@@ -8,7 +8,6 @@ import ezgin.src.main.GameController;
 import ezgin.src.main.GamePanel;
 import ezgin.src.main.enums.GameState;
 import ezgin.src.main.ui.buttons.DefaultButton;
-import jan.game.source.Audio.AudioManager;
 
 import static ezgin.src.utils.Constants.GameConstants.MUSIC_MENU;
 import static ezgin.src.utils.Constants.ImageConstants.BI_MENU_BACKGROUND;

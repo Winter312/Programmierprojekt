@@ -53,6 +53,8 @@ public class KeyboardInputs implements KeyListener {
         case PAUSE:
             Pause.getInstance().keyPressed(e);
             break;
+        default:
+            break;
         }
     }
 
@@ -71,6 +73,8 @@ public class KeyboardInputs implements KeyListener {
             break;
         case PAUSE:
             Pause.getInstance().keyReleased(e);
+            break;
+        default:
             break;
         }
     }

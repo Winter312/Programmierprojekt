@@ -17,7 +17,7 @@ public class Coin extends JLabel{
      */
     public Coin(Point centerPos) {
         
-        ImageIcon image = new ImageIcon(ObjectCollection.class.getResource("../images/coin.png"));
+        ImageIcon image = new ImageIcon(ObjectCollection.class.getResource("images/coin.png"));
         image.setImage(image.getImage().getScaledInstance(35, 35, Image.SCALE_SMOOTH));
         this.setIcon(image);
         this.setForeground(Color.white);

@@ -2,15 +2,11 @@ package SelectionMenu;
 
 import java.awt.EventQueue;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
-import jan.game.source.Game_Controller;
-import jan.game.source.Audio.AudioManager;
 
 public class GameFrame extends JFrame {
 

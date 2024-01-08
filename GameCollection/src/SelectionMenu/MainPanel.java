@@ -2,17 +2,13 @@ package SelectionMenu;
 
 import javax.swing.JPanel;
 import java.awt.GridLayout;
-import javax.swing.JSplitPane;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-import javax.swing.SwingWorker;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 

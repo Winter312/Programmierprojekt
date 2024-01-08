@@ -5,7 +5,6 @@ package Fatjon.Javamory.source;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Dialog;
-import java.util.Calendar;
 
 /**
  * Die ExitDialog-Klasse erweitert die Dialog-Klasse und repräsentiert einen Dialog,

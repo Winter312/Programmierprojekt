@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-import javax.swing.JLayeredPane;
-import javax.swing.SwingUtilities;
-import javax.swing.SwingWorker;
 
 import jan.game.source.Audio.AudioClip;
 import jan.game.source.Audio.AudioManager;
@@ -121,7 +118,7 @@ public class Game_Controller implements Runnable {
 
         AudioClip ac = new AudioClip();
 
-        ac.setFile("../../music/music.wav");
+        ac.setFile("music/music.wav");
 
         AudioManager.addMusicClip(ac);
 

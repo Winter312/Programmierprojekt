@@ -98,6 +98,8 @@ public class GameController implements Runnable {
             case GAME_OVER:
                 InGame.getInstance().update();
                 break;
+        default:
+            break;
         }
     }
 

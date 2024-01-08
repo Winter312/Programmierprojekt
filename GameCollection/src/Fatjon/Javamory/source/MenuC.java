@@ -1,9 +1,5 @@
 package Fatjon.Javamory.source;
 
-
-
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.LineUnavailableException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -217,7 +217,7 @@ public class ObjectCollection {
         
         Random random = new Random();
         
-        String path = "../images/";
+        String path = "images/";
         
         switch (random.nextInt(25)) {
         

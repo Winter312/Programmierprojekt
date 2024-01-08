@@ -57,6 +57,8 @@ public enum Level {
                 setPreviousLevel(LEVEL_THREE);
                 setCurrentLevel(LEVEL_CASTLE);
                 break;
+        default:
+            break;
         }
     }
 

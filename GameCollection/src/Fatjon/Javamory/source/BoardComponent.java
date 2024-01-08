@@ -4,8 +4,7 @@ package Fatjon.Javamory.source;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.HashMap;
-import java.util.Map;
+
 
 /**
  * Stellt die Hauptkomponente des Spielbretts in Javamory dar.
@@ -23,7 +22,6 @@ public class BoardComponent extends JComponent {
     private boolean hackerModeActive = false;
     private JavamoryFrame mainFrame;
     private boolean hackerModeUsed = false; // Neuer Flag, um zu überprüfen, ob der Hacker-Modus bereits verwendet wurde
-    private Map<Card, Boolean> preHackerModeCardStates;
 
     // Logik Anfang
 
@@ -37,7 +35,6 @@ public class BoardComponent extends JComponent {
         this.mainFrame = mainFrame;
         initializeLayout(level); // Initialisiert das Layout des Spielbretts
         setupGameEngine(); // Setzt die Spiel-Engine auf
-        preHackerModeCardStates = new HashMap<>(); // Initialisiert die Map, die den Zustand der Karten vor dem Hacker-Modus speichert
     }
 
     /**

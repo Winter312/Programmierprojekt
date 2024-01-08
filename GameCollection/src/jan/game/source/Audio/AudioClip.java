@@ -6,6 +6,8 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+import jan.game.source.Main;
+
 public class AudioClip {
        
     private Clip clip;
@@ -27,7 +29,7 @@ public class AudioClip {
      */
     public void setFile(String soundFileName) {
         try {
-            sound = AudioSystem.getAudioInputStream(this.getClass().getResource(soundFileName));
+            sound = AudioSystem.getAudioInputStream(Main.class.getResource(soundFileName));
             clip = AudioSystem.getClip();
             clip.open(sound);
             clip.loop(Clip.LOOP_CONTINUOUSLY);

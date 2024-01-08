@@ -5,8 +5,6 @@ import PixelPinesProtection.scenes.*;
 import javax.sound.sampled.Clip;
 import javax.swing.JFrame;
 
-import Fatjon.Javamory.source.JavamoryFrame;
-
 /**
  * Hauptklasse des Spiels, die das Fenster und den Spielablauf steuert.
  * Sie erbt von JFrame und implementiert Runnable, um das Spiel in einem eigenen Thread laufen zu lassen.

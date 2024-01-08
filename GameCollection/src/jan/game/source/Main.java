@@ -1,6 +1,5 @@
 package jan.game.source;
 
-import javax.swing.SwingUtilities;
 
 public class Main {
         

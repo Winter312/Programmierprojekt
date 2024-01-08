@@ -3,6 +3,7 @@ package CodeInvaders_Game.GameDisplay;
 import javax.swing.*;
 import java.awt.*;
 
+@SuppressWarnings("removal")
 public class Applet extends JApplet {
 
     private Display display = new Display();

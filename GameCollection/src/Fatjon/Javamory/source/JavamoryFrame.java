@@ -4,8 +4,6 @@ package Fatjon.Javamory.source;
 
 import javax.swing.*;
 
-import jan.game.source.Game_Controller.GAMESTATE;
-
 import java.net.URL;
 import javax.sound.sampled.*;
 import java.io.IOException;
