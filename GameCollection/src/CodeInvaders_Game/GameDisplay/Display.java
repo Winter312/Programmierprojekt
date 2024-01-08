@@ -1,11 +1,11 @@
 package CodeInvaders_Game.GameDisplay;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import CodeInvaders_Game.States.StateMachine;
-
 
 public class Display extends Canvas implements Runnable {
 
