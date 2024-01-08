@@ -17,7 +17,6 @@ public class GameFrame extends JFrame {
     
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-    
 
     /**
      * Launch the application.
@@ -32,7 +31,7 @@ public class GameFrame extends JFrame {
                     instance.getLayeredPane().add(mainPanel);
                     mainPanel.setBounds(0, 0, instance.getWidth(), instance.getHeight()-28);
                     instance.setFocusable(true);
-
+                    instance.setTitle("Game Collection");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
