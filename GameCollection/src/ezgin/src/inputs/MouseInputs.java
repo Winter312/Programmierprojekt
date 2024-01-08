@@ -167,4 +167,12 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
             break;
         }
     }
+
+
+    // GETTER AND SETTER
+
+
+    public static void setInstance(MouseInputs instance) {
+        MouseInputs.instance = instance;
+    }
 }

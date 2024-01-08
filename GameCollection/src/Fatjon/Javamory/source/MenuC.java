@@ -61,6 +61,9 @@ public class MenuC extends JComponent {
             JavamoryFrame.getInstanceOf().dispose();
 
             JavamoryFrame.running = false;
+            if (UserPanel.exitDialog != null)
+                UserPanel.exitDialog.handleGoMenuAction();
+
 
         });
     }

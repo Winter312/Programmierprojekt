@@ -78,4 +78,12 @@ public class KeyboardInputs implements KeyListener {
             break;
         }
     }
+
+
+    // GETTER AND SETTER
+
+
+    public static void setInstance(KeyboardInputs instance) {
+        KeyboardInputs.instance = instance;
+    }
 }

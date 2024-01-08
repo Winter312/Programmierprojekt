@@ -99,6 +99,8 @@ public class ExitDialog extends Dialog {
             JavamoryFrame.getInstanceOf().dispose();
 
             JavamoryFrame.running = false;
+            if (UserPanel.exitDialog != null)
+                UserPanel.exitDialog.handleGoMenuAction();
 
         });
     }
@@ -140,7 +142,7 @@ public class ExitDialog extends Dialog {
      * Behandelt die Aktion für die "Zum Menü"-Schaltfläche.
      * Schließt den Dialog und kehrt zum Hauptmenü zurück.
      */
-    private void handleGoMenuAction() {
+    public void handleGoMenuAction() {
         setVisible(false); // Schließt den Dialog
         JavamoryFrame memory = JavamoryFrame.getInstanceOf(); // Ruft die Instanz des Hauptfensters ab
         memory.getContentPane().removeAll(); // Entfernt alle Inhalte des Hauptfensters

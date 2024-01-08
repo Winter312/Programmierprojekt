@@ -1,6 +1,7 @@
 package PixelPinesProtection.main;
 
 import PixelPinesProtection.scenes.*;
+import ezgin.src.main.enums.GameState;
 
 import javax.sound.sampled.Clip;
 import javax.swing.JFrame;
@@ -37,6 +38,7 @@ public class Game extends JFrame implements Runnable {
                 Game.running = false;
                 Game.instance.dispose();
                 playing.getMusic().stop();
+                GameStates.gameState = GameStates.MENU;
             }
         });
         setResizable(false);

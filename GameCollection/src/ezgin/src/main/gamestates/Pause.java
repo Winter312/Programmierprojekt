@@ -148,4 +148,8 @@ public class Pause {
     public HashMap<MiniButton, BufferedImage> getButtons() {
         return buttons;
     }
+
+    public static void setInstance(Pause instance) {
+        Pause.instance = instance;
+    }
 }

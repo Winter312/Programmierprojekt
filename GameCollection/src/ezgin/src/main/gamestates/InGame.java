@@ -58,7 +58,6 @@ public class InGame {
         initInGame();
         GameController.getInstance().getMusicClips().put("InGame", MUSIC_GAME);
         GameController.getInstance().getMusicClips().put("Castle", MUSIC_CASTLE);
-
     }
 
     /**

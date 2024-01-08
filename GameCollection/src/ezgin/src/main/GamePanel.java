@@ -24,6 +24,7 @@ import ezgin.src.main.entities.livingentities.Player;
 import ezgin.src.main.entities.nonlivingentities.CheckPoint;
 import ezgin.src.main.entities.nonlivingentities.Door;
 import ezgin.src.main.entities.nonlivingentities.Stela;
+import ezgin.src.main.enums.GameState;
 import ezgin.src.main.enums.Item;
 import ezgin.src.main.enums.TutorialState;
 import ezgin.src.main.gamestates.Credits;
@@ -86,6 +87,7 @@ public class GamePanel extends JPanel {
         frame.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent e) {
                 try {
+
                     quit();
                 } catch (IOException e1) {
                     // TODO Auto-generated catch block
@@ -101,23 +103,17 @@ public class GamePanel extends JPanel {
         frame.setLocationRelativeTo(null); // JFrame wird in der Mitte des Bildschirms platziert
         frame.setVisible(true); // JFrame wird sichtbar gemacht
 
-        setInGame(InGame.getInstance());
-        setMenu(Menu.getInstance());
-        setCredits(Credits.getInstance());
-        setSettings(Settings.getInstance());
-        setPause(Pause.getInstance());
-        setGameOver(GameOver.getInstance());
-        setWin(Win.getInstance());
         setHeart(Load.getUiImages("heart.png"));
     }
     
     public void quit() throws IOException {
-        
-        
         GameController.getInstance().setGameThread(null);
         GameController.getInstance().stopMusic();
         GamePanel.frame.dispose();
         GamePanel.setInstance(null);
+
+        InGame.getInstance().reset();
+        GameState.setCurrentState(MENU);
     }
 
     /**

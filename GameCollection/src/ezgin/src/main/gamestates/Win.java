@@ -100,4 +100,8 @@ public class Win {
     public DefaultButton[] getButtons() {
         return buttons;
     }
+
+    public static void setInstance(Win instance) {
+        Win.instance = instance;
+    }
 }

@@ -24,6 +24,8 @@ public class UserPanel extends JPanel implements TimeUpdateListener {
     private GameEngine gameEngine; // Verweis auf die Spiel-Engine
     private boolean paused; // Flag, das angibt, ob das Spiel pausiert ist
 
+    public static ExitDialog exitDialog;
+
     // Logik Anfang
 
     /**
@@ -47,6 +49,7 @@ public class UserPanel extends JPanel implements TimeUpdateListener {
 
         setBackground(Color.WHITE);
         setOpaque(true);
+        exitDialog = new ExitDialog("Exit Confirmation", gameEngine, (JFrame) SwingUtilities.getWindowAncestor(this));
     }
 
     /**
@@ -229,7 +232,6 @@ public class UserPanel extends JPanel implements TimeUpdateListener {
      * Zeigt einen Dialog an, der den Spieler fragt, ob er das Spiel beenden möchte.
      */
     private void showExitDialog() {
-        ExitDialog exitDialog = new ExitDialog("Exit Confirmation", gameEngine, (JFrame) SwingUtilities.getWindowAncestor(this));
         exitDialog.setVisible(true);
     }
 

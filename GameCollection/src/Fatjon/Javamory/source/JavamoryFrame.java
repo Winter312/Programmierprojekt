@@ -34,11 +34,11 @@ public class JavamoryFrame extends JFrame {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // Bestimmt das Verhalten beim Schließen
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent e) {
-                    JavamoryFrame.getInstanceOf().stopBackgroundMusic();
-
-                    JavamoryFrame.getInstanceOf().dispose();
-
-                    JavamoryFrame.running = false;
+            JavamoryFrame.getInstanceOf().stopBackgroundMusic();
+            JavamoryFrame.getInstanceOf().dispose();
+            JavamoryFrame.running = false;
+            if (UserPanel.exitDialog != null)
+                UserPanel.exitDialog.handleGoMenuAction();
 
             }
         });
