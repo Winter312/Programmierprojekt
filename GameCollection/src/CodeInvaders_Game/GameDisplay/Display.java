@@ -1,6 +1,8 @@
 package CodeInvaders_Game.GameDisplay;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import CodeInvaders_Game.States.StateMachine;
 
@@ -18,8 +20,8 @@ public class Display extends Canvas implements Runnable {
         frame.pack();
         frame.setTitle("Code Invaders");
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        frame.addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent e) {
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
                 running = false;
                 frame.dispose();
             }

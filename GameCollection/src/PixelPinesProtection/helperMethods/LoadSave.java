@@ -16,7 +16,7 @@ public class LoadSave {
 
     public static BufferedImage getMap1() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/map1.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/map1.png");
 
         try {
             img = ImageIO.read(is);
@@ -27,7 +27,7 @@ public class LoadSave {
     }
     public static BufferedImage getVRed() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/virusRed.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/virusRed.png");
 
         try {
             img = ImageIO.read(is);
@@ -39,7 +39,7 @@ public class LoadSave {
 
     public static BufferedImage getVBlue() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/virusBlue.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/virusBlue.png");
 
         try {
             img = ImageIO.read(is);
@@ -50,7 +50,7 @@ public class LoadSave {
     }
     public static BufferedImage getVYellow() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/virusYellow.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/virusYellow.png");
 
         try {
             img = ImageIO.read(is);
@@ -61,7 +61,7 @@ public class LoadSave {
     }
     public static BufferedImage getVPink() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/virusPink.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/virusPink.png");
 
         try {
             img = ImageIO.read(is);
@@ -72,7 +72,7 @@ public class LoadSave {
     }
     public static BufferedImage getVBoss() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/virusBoss.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/virusBoss.png");
 
         try {
             img = ImageIO.read(is);
@@ -84,7 +84,7 @@ public class LoadSave {
 
     public static BufferedImage getRocketTow() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/rocketTower.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/rocketTower.png");
 
         try {
             img = ImageIO.read(is);
@@ -96,7 +96,7 @@ public class LoadSave {
 
     public static BufferedImage getredTow() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/redTower.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/redTower.png");
 
         try {
             img = ImageIO.read(is);
@@ -108,7 +108,7 @@ public class LoadSave {
 
     public static BufferedImage getGreenTow() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/greenTower.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/greenTower.png");
 
         try {
             img = ImageIO.read(is);
@@ -120,7 +120,7 @@ public class LoadSave {
 
     public static BufferedImage getRocket() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/rocket.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/rocket.png");
 
         try {
             img = ImageIO.read(is);
@@ -132,7 +132,7 @@ public class LoadSave {
 
     public static BufferedImage getFireSlim() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/fireslim.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/fireslim.png");
 
         try {
             img = ImageIO.read(is);
@@ -144,7 +144,7 @@ public class LoadSave {
 
     public static BufferedImage getFireFat() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/firefat.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/firefat.png");
 
         try {
             img = ImageIO.read(is);
@@ -160,7 +160,7 @@ public class LoadSave {
      */
     public static int[][] getLevelData() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("../res/hitbox.png");
+        InputStream is = LoadSave.class.getResourceAsStream("/PixelPinesProtection/res/hitbox.png");
         try {
             img = ImageIO.read(is);
         } catch (IOException e) {
@@ -180,7 +180,7 @@ public class LoadSave {
     public static Clip getAudioClip() {
         try {
             Clip clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(Objects.requireNonNull(LoadSave.class.getResource("../res/music.wav"))));
+            clip.open(AudioSystem.getAudioInputStream(Objects.requireNonNull(LoadSave.class.getResource("/PixelPinesProtection/res/music.wav"))));
             return clip;
         } catch (Exception e) {
             e.printStackTrace();
