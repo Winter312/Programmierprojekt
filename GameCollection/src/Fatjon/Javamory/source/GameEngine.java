@@ -268,38 +268,56 @@ public class GameEngine extends Thread {
      * @param second Der Index der zweiten umgedrehten Karte.
      */
     private void checkAndProcessCards(List<Card> cards, int first, int second) {
-        boolean matchFound = cards.get(first).isMatching(cards.get(second)); // Überprüft, ob ein Paar gefunden wurde
+        Card firstCard = cards.get(first);
+        Card secondCard = cards.get(second);
+        boolean matchFound = firstCard.isMatching(secondCard);
 
         SwingUtilities.invokeLater(() -> {
             if (matchFound) {
-                goodPairs++; // Erhöht die Anzahl der korrekten Paare
-                cards.get(first).setMatched(true); // Markiert die erste Karte als gematcht
-                cards.get(second).setMatched(true); // Markiert die zweite Karte als gematcht
+                // Wenn ein Paar gefunden wurde
+                firstCard.setMatched(true);
+                secondCard.setMatched(true);
+                goodPairs++;
             } else {
-                cards.get(first).resetCard(); // Setzt die erste Karte zurück, wenn kein Paar gefunden wurde
-                cards.get(second).resetCard(); // Setzt die zweite Karte zurück, wenn kein Paar gefunden wurde
+                // Kein Paar gefunden
+                firstCard.resetCard();
+                secondCard.resetCard();
             }
 
-            // Erhöht die Versuche nach jedem Versuch, unabhängig vom Ergebnis
+            // Aktualisiere Versuche und GUI
             if (!hackerModeActive) {
                 attempts++;
-                updateAttemptsLabel(); // Aktualisiert das Anzeigelabel für die Versuche
+                updateAttemptsLabel();
             }
 
-            cards.get(first).setBeingProcessed(false);
-            cards.get(second).setBeingProcessed(false);
+            firstCard.setBeingProcessed(false);
+            secondCard.setBeingProcessed(false);
 
-            for (Card card : cards) {
-                if (!card.isMatched()) {
-                    card.setEnabled(true); // Aktiviert alle nicht gematchten Karten
-                }
-            }
+            // Reaktiviere Karten, die nicht gepaart sind
+            reEnableNonMatchedCards(cards);
 
-            checkForWin(); // Überprüft, ob das Spiel gewonnen wurde
-
-            // Setzt das Flag zurück, dass die Karten nicht mehr geschlossen werden
-            closingCards = false;
+            // Überprüfe, ob das Spiel gewonnen wurde
+            checkForWin();
         });
+    }
+
+    /**
+     * Reaktiviert alle Karten, die noch kein Paar gefunden haben.
+     * Diese Methode durchläuft die Liste aller Karten und aktiviert jede Karte, die
+     * nicht Teil eines bereits gefundenen Paares ist und die gerade nicht in einem
+     * Überprüfungsprozess involviert ist. Dies stellt sicher, dass Spieler weiterhin
+     * mit allen relevanten Karten interagieren können, ohne dass bereits gematchte
+     * oder momentan überprüfte Karten fälschlicherweise wieder spielbar werden.
+     *
+     * @param cards Die Liste der Karten im Spiel. Jede Karte wird auf ihren aktuellen
+     *              Zustand überprüft, um zu entscheiden, ob sie reaktiviert werden soll.
+     */
+    private void reEnableNonMatchedCards(List<Card> cards) {
+        for (Card card : cards) {
+            if (!card.isMatched() && !card.isBeingProcessed()) {
+                card.setEnabled(true);
+            }
+        }
     }
 
     /**
