@@ -12,3 +12,8 @@
 -Spiel: "Javamory" von Fatjon Popaj
 -Überraschung im Spiel: Der Hacker-Modus darf einmal pro Runde aktiviert werden. Dieser ermöglicht es dem Spieler für eine bestimmte
 Zeit alle Karten aufzudecken. Dazu warten auf den Spieler zwei kleine Strafen.
+
+-Spiel: "Pixel Pines Protection" von Christian Nemchenko
+-Überraschung im Spiel: Im letzten Level in der letzten Wave, erscheint ein "Boss-Gegner" der ein vielfaches von dem aushält, was normale Gegner aushalten.
+-Änderungen am Spiel: Einstellungsseite entfernt, dafür ein How To Play eingefügt. Hier wird erklärt wie das Spiel gespielt wird.
+-Bemerkung: Spiel ist nur für Bildschirme mit FullHD Auflösung optimiert.
