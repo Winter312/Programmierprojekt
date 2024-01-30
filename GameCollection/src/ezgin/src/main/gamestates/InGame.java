@@ -123,7 +123,7 @@ public class InGame {
         getButtons()[2] = new MiniButton(MENU_TILE_SIZE * 7, MENU_TILE_SIZE * 9, "S_InGame");
         getButtons()[3] = new MiniButton(MENU_TILE_SIZE * 9, MENU_TILE_SIZE * 9, "D_InGame");
         getButtons()[4] = new MiniButton(MENU_TILE_SIZE / 2, MENU_TILE_SIZE * 5, "Esc_InGame");
-        getButtons()[5] = new MiniButton((int) (SCREEN_WIDTH - MENU_TILE_SIZE * 1.75f), (int) (MENU_TILE_SIZE * 0.6875f), "+_InGame");
+        getButtons()[5] = new MiniButton((int) (SCREEN_WIDTH - MENU_TILE_SIZE * 1.75f), (int) (MENU_TILE_SIZE * 0.6875f), "P_InGame");
         getButtons()[6] = new DefaultButton(MENU_TILE_SIZE / 2, MENU_TILE_SIZE * 9, "Shift_InGame");
         getButtons()[7] = new DefaultButton(-MENU_TILE_SIZE * 2, MENU_TILE_SIZE * 7, "Tab_InGame");
         getButtons()[8] = new DefaultButton(-MENU_TILE_SIZE * 2, MENU_TILE_SIZE * 7, "Enter_InGame");
@@ -583,7 +583,7 @@ public class InGame {
                 }
                 updateButtonState(8, true);
             }
-            if (e.getKeyCode() == KeyEvent.VK_PLUS) {
+            if (e.getKeyCode() == KeyEvent.VK_P) {
                 updateButtonState(5, true);
             }
         }
@@ -629,7 +629,7 @@ public class InGame {
                 updateButtonState(8, false);
             }
             if (getCurrentLevel() == LEVEL_ZERO) {
-                if (e.getKeyCode() == KeyEvent.VK_PLUS) {
+                if (e.getKeyCode() == KeyEvent.VK_P) {
                     for (TutorialState tutorialState : TutorialState.values()) {
                         tutorialState.setDone(1);
                     }

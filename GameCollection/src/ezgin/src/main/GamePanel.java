@@ -939,7 +939,7 @@ public class GamePanel extends JPanel {
         if (getCurrentTutorialState() != NONE && getCurrentLevel() == LEVEL_ZERO) {
             x = getCurrentState() != IN_GAME && !Arrays.asList(getInGame().getButtons()).contains(button) ? 0
                     : TutorialState.getCurrentTutorialState() != NONE
-                            ? button.getText().contains("+") ? 0
+                            ? button.getText().contains("P") ? 0
                                     : button.getText().contains("Tab") || button.getText().contains("Enter")
                                             || button.getText().contains("Maus") ? getTutorialCenterX() : getTutorialX()
                             : 0;
